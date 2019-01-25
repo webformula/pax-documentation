@@ -15,6 +15,10 @@ const page = new class Introduction extends Page {
         Disclaimer: This is a beta version
       </div>
 
+      <div>
+        <md-button>help</md-button>
+      </div>
+
       <article>
         <article class="into-article">
           <h3>Introduction</h3>

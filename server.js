@@ -7,6 +7,9 @@ const {
   setConfig,
   fileHandler
 } = require('@webformula/pax-core');
+const {
+  fileHandler: componentsFileHandler
+} = require('@webformula/pax-components');
 const IP = process.env.IP || '127.0.0.1';
 const PORT = process.env.PORT || 3001;
 
@@ -23,18 +26,18 @@ setConfig({
    * default: true
    * user built in service worker to manage cache
    */
-  serviceWorker: true
+  serviceWorker: false
 });
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use('*/prismjs', express.static(path.join(__dirname, './node_modules/prismjs'), { maxAge: '1d' }));
 app.use('*/assets', express.static(path.join(__dirname, './app/public'), { maxAge: '1d' }));
 app.use('/images', express.static(path.join(__dirname, './app/public/images'), { maxAge: '1d' }));
 app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));
 app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json'), { maxAge: '1d' }));
 app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
 
+app.use(componentsFileHandler.expressFileHandler);
 app.use(fileHandler.expressFileHandler);
 
 app.use('/', require('./app/router'));

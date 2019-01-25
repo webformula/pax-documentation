@@ -19,9 +19,12 @@ module.exports = ({ head, body, title }) => html`
       <link rel="stylesheet" href="assets/styles/main.css">
       <link rel="stylesheet" href="assets/styles/page.css">
 
-      <link rel="stylesheet" href="wcn.css">
-      <script src="wcn.js"></script>
+      <link rel="stylesheet" href="pax.css">
+      <link rel="stylesheet" href="pax-components.css">
+
       <script src="load-service-worker.js"></script>
+      <script src="pax.js"></script>
+      <script src="pax-components.js"></script>
       ${head}
     </head>
 

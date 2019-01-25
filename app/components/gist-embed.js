@@ -22,6 +22,10 @@ customElements.define('gist-embed', class extends HTMLElementExtended {
     return ['height'];
   }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    this[name] = newValue;
+  }
+
   get src() {
     return this.getAttribute('src').replace('.js', '') + '.js';
   }
@@ -41,10 +45,6 @@ customElements.define('gist-embed', class extends HTMLElementExtended {
   set height(value) {
     this.autoHeight = false;
     if (this.children[0]) this.children[0].style.height =  String(value).replace('px', '') + 'px';
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    this[name] = newValue;
   }
 
   buildIframe() {
