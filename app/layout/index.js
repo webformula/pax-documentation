@@ -18,7 +18,7 @@ module.exports = ({ head, body, title }) => html`
       <link rel="manifest" href="manifest.json">
       <link rel="stylesheet" href="assets/styles/main.css">
       <link rel="stylesheet" href="assets/styles/page.css">
-
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="pax.css">
       <link rel="stylesheet" href="pax-components.css">
 

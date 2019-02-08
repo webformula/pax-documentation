@@ -7,9 +7,6 @@ const {
   setConfig,
   fileHandler
 } = require('@webformula/pax-core');
-const {
-  fileHandler: componentsFileHandler
-} = require('@webformula/pax-components');
 const IP = process.env.IP || '127.0.0.1';
 const PORT = process.env.PORT || 3001;
 
@@ -37,7 +34,8 @@ app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.
 app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json'), { maxAge: '1d' }));
 app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
 
-app.use(componentsFileHandler.expressFileHandler);
+app.use('/pax-components.js', express.static('node_modules/@webformula/pax-components/dist/main.js', { maxAge: '1d' }));
+app.use('/pax-components.css', express.static('node_modules/@webformula/pax-components/dist/style.css', { maxAge: '1d' }));
 app.use(fileHandler.expressFileHandler);
 
 app.use('/', require('./app/router'));
