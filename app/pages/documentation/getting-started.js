@@ -48,12 +48,12 @@ module.exports = class LoadingClient extends Page {
         <article class="sub-article" id="installation">
           <h4>Installation</h4>
           <p>You can install pax-core through NPM</p>
-          <gist-embed hide-footer no-scroll height="18" src="https://gist.github.com/B-3PO/8dd67b76eded0e6ba1d59cf6f2eb857f"></gist-embed>
+          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/8dd67b76eded0e6ba1d59cf6f2eb857f"></gist-embed>
 
           <div class="spacer"></div>
           <h5>Install Expressjs</h5>
           <p>Express is not required, but we are using it to server our website in this example</p>
-          <gist-embed hide-footer no-scroll height="18" src="https://gist.github.com/B-3PO/16406fd959ddfbe44d15dbd2f25a9dd2"></gist-embed>
+          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/16406fd959ddfbe44d15dbd2f25a9dd2"></gist-embed>
         </article>
 
         <article class="sub-article" id="create-our-fist-page">

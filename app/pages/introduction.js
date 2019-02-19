@@ -4,16 +4,6 @@ const {
 } = require('@webformula/pax-core');
 
 module.exports = class Introduction extends Page {
-  connectedCallback() {
-    const percentProgressBar = document.querySelector('mdw-linear-progress[percent]');
-    let percent = 0;
-    const interval = setInterval(() => {
-      percent += 0.1;
-      percentProgressBar.setAttribute('percent', percent);
-      if (percent === 100) clearInterval(interval);
-    }, 1);
-  }
-
   get title() {
     return 'Introduction';
   }
@@ -33,38 +23,6 @@ module.exports = class Introduction extends Page {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
-      </div>
-
-      <div>
-        <mdw-circular-progress mode="indeterminate" diameter="50"></mdw-circular-progress>
-      </div>
-
-      <div>
-        <mdw-linear-progress></mdw-linear-progress>
-        <mdw-linear-progress percent="0"></mdw-linear-progress>
-      </div>
-
-      <div>
-        <mdw-button>basic</mdw-button>
-        <mdw-button raised>raised</mdw-button>
-        <mdw-button unelevated class="primary">unelevated primary</mdw-button>
-        <mdw-button outlined class="secondary">outlined secondary</mdw-button>
-        <mdw-button raised shaped class="primary">shaped primary</mdw-button>
-        <mdw-button dense raised>dense raised</mdw-button>
-        <mdw-button dense outlined shaped class="error">dense outlined shaped error</mdw-button>
-        <mdw-button raised class="primary" async="$Introduction.mockWait()" onclick="console.log('should not log')">Async</mdw-button>
-      </div>
-
-      <div>
-        <mdw-checkbox onchange="$Introduction.test(this.checked)"></mdw-checkbox>
-        <mdw-checkbox indeterminate class="primary"></mdw-checkbox>
-        <mdw-checkbox class="error"></mdw-checkbox>
-      </div>
-
-      <div>
-        <mdw-icon>home</mdw-icon>
-        <mdw-icon class="primary">person</mdw-icon>
-        <mdw-icon class="error">delete</mdw-icon>
       </div>
 
       <form name="theform">

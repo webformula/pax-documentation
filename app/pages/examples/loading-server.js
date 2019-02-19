@@ -102,7 +102,7 @@ module.exports = class LoadingServer extends Page {
   }
 
   // this has acess to this modules / files scope
-  async serverRender() {
+  async serverInit() {
     this.data = await theData()
   }
 };
