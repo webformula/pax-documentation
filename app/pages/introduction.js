@@ -25,27 +25,6 @@ module.exports = class Introduction extends Page {
         Disclaimer: This is a beta version
       </div>
 
-      <form name="theform">
-        <div class="row space-between wrap" style="justify-content: space-around; flex-wrap: wrap;">
-          <mdw-text-field-container>
-            <mdw-text-field>
-              <input name="my-text-field" required>
-              <label for="my-text-field">Hint text</label>
-            </mdw-text-field>
-            <mdw-helper-text>helper text</mdw-helper-text>
-            <mdw-helper-text validation>Error text</mdw-helper-text>
-          </mdw-text-field-container>
-
-          <mdw-text-field-container>
-            <mdw-text-field outlined>
-              <input name="my-text-field" required>
-              <label for="my-text-field">Hint text</label>
-            </mdw-text-field>
-            <mdw-helper-text validation>Error text</mdw-helper-text>
-          </mdw-text-field-container>
-        </div>
-      </form>
-
       <article>
         <article class="into-article">
           <h3>Introduction</h3>
