@@ -20,11 +20,9 @@ module.exports = ({ head, body, title }) => html`
       <link rel="stylesheet" href="assets/styles/page.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="pax.css">
-      <link rel="stylesheet" href="pax-components.css">
 
       <script src="load-service-worker.js"></script>
       <script src="pax.js"></script>
-      <script src="pax-components.js"></script>
       ${head}
     </head>
 

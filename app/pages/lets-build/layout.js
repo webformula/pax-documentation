@@ -1,15 +1,14 @@
 const {
   Page,
-  html,
-  css
+  html
 } = require('@webformula/pax-core');
 
-const page = new class Layout extends Page {
+module.exports = class Layout extends Page {
   get title() {
     return 'Layout';
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -40,6 +39,4 @@ const page = new class Layout extends Page {
       </article>
     `;
   }
-}
-
-module.exports = async () => page.build();
+};

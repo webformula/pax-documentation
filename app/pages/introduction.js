@@ -1,10 +1,9 @@
 const {
   Page,
-  html,
-  css
+  html
 } = require('@webformula/pax-core');
 
-const page = new class Introduction extends Page {
+module.exports = class Introduction extends Page {
   connectedCallback() {
     const percentProgressBar = document.querySelector('mdw-linear-progress[percent]');
     let percent = 0;
@@ -30,7 +29,7 @@ const page = new class Introduction extends Page {
     });
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -129,6 +128,4 @@ const page = new class Introduction extends Page {
       </article>
     `;
   }
-}
-
-module.exports = async () => page.build();
+};

@@ -14,9 +14,8 @@
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
   "dependencies": {
+    "@webformula/pax-core": "^0.1.1-beta",
     "express": "^4.16.4",
-    "morgan": "^1.9.1",
-    "@webformula/pax-core": "file:../pax-core",
-    "@webformula/pax-components": "file:../pax-components"
+    "morgan": "^1.9.1"
   }
 }

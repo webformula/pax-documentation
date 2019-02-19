@@ -1,7 +1,7 @@
 const {
   customElements,
   HTMLElementExtended,
-  css,
+  cssStr,
   html
 } = require('@webformula/pax-core');
 
@@ -27,14 +27,14 @@ customElements.define('expander-header', class extends HTMLElementExtended {
     if (this.arrow) this.arrow.close();
   }
 
-  html() {
+  template() {
     return html`
       <slot></slot>
     `;
   }
 
   externalCSS() {
-    return css`
+    return cssStr`
       expander-header {
         display: block;
         position: relative;
@@ -45,7 +45,7 @@ customElements.define('expander-header', class extends HTMLElementExtended {
         outline: none;
         border: 0;
         background: transparent;
-        font-size: 1.5rem;
+        font-size: 0.9375rem;
         overflow: hidden;
         transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
         border-radius: 0;

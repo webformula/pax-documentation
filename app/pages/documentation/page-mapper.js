@@ -1,16 +1,16 @@
 const {
   Page,
   html,
-  css
+  cssStr
 } = require('@webformula/pax-core');
 
-const page = new class PageMapper extends Page {
+module.exports = class PageMapper extends Page {
   get title() {
     return 'Page mapper';
   }
 
   css() {
-    return css`
+    return cssStr`
       .indent-1 {
         padding-left: 20px;
       }
@@ -21,7 +21,7 @@ const page = new class PageMapper extends Page {
     `;
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -63,6 +63,4 @@ const page = new class PageMapper extends Page {
       </article>
     `;
   }
-}
-
-module.exports = async () => page.build();
+};

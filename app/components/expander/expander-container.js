@@ -1,7 +1,6 @@
 const {
   customElements,
-  HTMLElementExtended,
-  html
+  HTMLElementExtended
 } = require('@webformula/pax-core');
 
 customElements.define('expander-container', class extends HTMLElementExtended {

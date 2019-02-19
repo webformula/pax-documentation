@@ -1,10 +1,10 @@
 const {
   Page,
   html,
-  css
+  cssStr
 } = require('@webformula/pax-core');
 
-const page = new class LoadingClient extends Page {
+module.exports = class LoadingClient extends Page {
   constructor() {
     super();
     this.loading = true;
@@ -44,7 +44,7 @@ const page = new class LoadingClient extends Page {
         label: 'eight' } ];
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -80,7 +80,7 @@ const page = new class LoadingClient extends Page {
 
   // This is a convinience method. It is suggested you load your css in a file
   css() {
-    return css`
+    return cssStr`
       .styled-list {
         padding: 0;
         margin: 0;
@@ -110,8 +110,4 @@ const page = new class LoadingClient extends Page {
       }
     `;
   }
-};
-
-module.exports = async () => {
-  return page.build(); // { title, head, body }
 };

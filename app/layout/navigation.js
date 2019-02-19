@@ -15,7 +15,7 @@ module.exports = ({ title }) => html`
           <expander-arrow></expander-arrow>
         </expander-header>
 
-        <expander-content>
+        <expander-content class="indent">
           <a href="https://github.com/pacts-org/pacts-core" target="new">GitHub</a>
           <a href="https://www.npmjs.com/org/pacts" target="new">npm</a>
           <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="new">MDN Web components</a>
@@ -23,6 +23,8 @@ module.exports = ({ title }) => html`
         </expander-content>
       </expander-container>
     </section>
+
+    <divider></divider>
 
     <section>
       <span class="title">Documentation</span>
@@ -32,6 +34,7 @@ module.exports = ({ title }) => html`
       <a href="/documentation/web-components" ${title === 'Web components' ? 'class="active"' : ''}>Web componenets</a>
     </section>
 
+    <divider></divider>
 
     <section>
       <span class="title">Lets build a site</span>
@@ -42,6 +45,8 @@ module.exports = ({ title }) => html`
       <a href="/lets-build/component" ${title === 'Component' ? 'class="active"' : ''}><b>5</b>&nbsp Component</a>
       <a href="/lets-build/wrap-up" ${title === 'Wrap up' ? 'class="active"' : ''}>Wrap up</a>
     </section>
+
+    <divider></divider>
 
     <section>
       <span class="title">Examples</span>

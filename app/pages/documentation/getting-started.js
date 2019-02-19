@@ -1,15 +1,14 @@
 const {
   Page,
-  html,
-  css
+  html
 } = require('@webformula/pax-core');
 
-const page = new class LoadingClient extends Page {
+module.exports = class LoadingClient extends Page {
   get title() {
     return 'Getting started';
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -91,6 +90,4 @@ const page = new class LoadingClient extends Page {
       </article>
     `;
   }
-}
-
-module.exports = async () => page.build();
+};

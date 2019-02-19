@@ -1,8 +1,7 @@
 const {
   customElements,
   HTMLElementExtended,
-  html,
-  css
+  cssStr
 } = require('@webformula/pax-core');
 
 customElements.define('expander-arrow', class extends HTMLElementExtended {
@@ -23,7 +22,7 @@ customElements.define('expander-arrow', class extends HTMLElementExtended {
   }
 
   externalCSS() {
-    return css`
+    return cssStr`
       expander-arrow {
         float: right;
         border: solid #b3b3b3;

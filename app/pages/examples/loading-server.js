@@ -3,7 +3,29 @@ const {
   html
 } = require('@webformula/pax-core');
 
-const page = new class LoadingServer extends Page {
+async function theData() {
+  // use timeout to simulate an endpoint loading
+  await new Promise(resolve => setTimeout(resolve, 100));
+  return [
+    { id: 1,
+      label: 'one' },
+    { id: 2,
+      label: 'two' },
+    { id: 3,
+      label: 'three' },
+    { id: 4,
+      label: 'four' },
+    { id: 5,
+      label: 'five' },
+    { id: 6,
+      label: 'six' },
+    { id: 7,
+      label: 'seven' },
+    { id: 8,
+      label: 'eight' } ];
+}
+
+module.exports = class LoadingServer extends Page {
   constructor() {
     super();
     this.data = [];
@@ -14,7 +36,7 @@ const page = new class LoadingServer extends Page {
     return 'Loading and rendering on the server';
   }
 
-  html() {
+  template() {
     return html`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
@@ -78,31 +100,9 @@ const page = new class LoadingServer extends Page {
       }
     `;
   }
-};
 
-async function theData() {
-  // use timeout to simulate an endpoint loading
-  await new Promise(resolve => setTimeout(resolve, 100));
-  return [
-    { id: 1,
-      label: 'one' },
-    { id: 2,
-      label: 'two' },
-    { id: 3,
-      label: 'three' },
-    { id: 4,
-      label: 'four' },
-    { id: 5,
-      label: 'five' },
-    { id: 6,
-      label: 'six' },
-    { id: 7,
-      label: 'seven' },
-    { id: 8,
-      label: 'eight' } ];
-}
-
-module.exports = async () => {
-  const data = await theData();
-  return page.build({ data }); // { title, head, body }
+  // this has acess to this modules / files scope
+  async serverRender() {
+    this.data = await theData()
+  }
 };
