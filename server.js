@@ -23,7 +23,7 @@ setConfig({
    * default: true
    * user built in service worker to manage cache
    */
-  serviceWorker: false
+  serviceWorker: true
 });
 
 app.use(morgan('dev'));
