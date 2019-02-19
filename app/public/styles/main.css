@@ -149,6 +149,15 @@ header .version {
   font-weight: bold;
 }
 
+header .version a {
+  line-height: 55px;
+  vertical-align: top;
+  padding-left: 4px;
+  color: #5e8dff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 section.body-container {
   /* margin-top: 54px; */
 }
