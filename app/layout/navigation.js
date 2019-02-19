@@ -16,7 +16,7 @@ module.exports = ({ title }) => html`
         </expander-header>
 
         <expander-content class="indent">
-          <a href="https://github.com/pacts-org/pacts-core" target="new">GitHub</a>
+          <a href="https://github.com/webformula/pax-core" target="new">GitHub</a>
           <a href="https://www.npmjs.com/org/pacts" target="new">npm</a>
           <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="new">MDN Web components</a>
           <a href="https://www.w3.org/standards/techs/components#w3c_all" target="new">Web components spec</a>
