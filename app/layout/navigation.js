@@ -2,9 +2,9 @@ const { html } = require('@webformula/pax-core');
 
 module.exports = ({ title }) => html`
   <nav>
-    <span class="main-title">Web</span>
-    <span class="main-title">Components</span>
-    <span class="main-title">Node</span>
+    <span class="main-title">PAX</span>
+    <span class="main-title">WEB</span>
+    <span class="main-title">TOOLS</span>
 
     <section>
       <span class="title">Welcome</span>
