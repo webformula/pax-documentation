@@ -2,7 +2,7 @@ const {
   customElements,
   HTMLElementExtended,
   html,
-  cssStr
+  css
 } = require('@webformula/pax-core');
 
 customElements.define('progress-bar', class extends HTMLElementExtended {
@@ -38,8 +38,8 @@ customElements.define('progress-bar', class extends HTMLElementExtended {
     this.bar.style.width = `${value}%`;
   }
 
-  css() {
-    return cssStr`
+  styles() {
+    return css`
       :host {
         display: block;
         position: relative;

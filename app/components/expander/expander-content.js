@@ -2,7 +2,7 @@ const {
   customElements,
   HTMLElementExtended,
   html,
-  cssStr
+  css
 } = require('@webformula/pax-core');
 
 customElements.define('expander-content', class extends HTMLElementExtended {
@@ -69,8 +69,8 @@ customElements.define('expander-content', class extends HTMLElementExtended {
     }
   }
 
-  css() {
-    return cssStr`
+  styles() {
+    return css`
       :host {
         display: block;
         overflow: hidden;
@@ -92,8 +92,8 @@ customElements.define('expander-content', class extends HTMLElementExtended {
     `;
   }
 
-  externalCSS() {
-    return cssStr`
+  externalStyles() {
+    return css`
       expander-content {
         display: none;
       }

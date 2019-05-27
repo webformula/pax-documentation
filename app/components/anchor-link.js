@@ -1,7 +1,7 @@
 const {
   customElements,
   HTMLElementExtended,
-  cssStr
+  css
 } = require('@webformula/pax-core');
 
 customElements.define('anchor-link', class extends HTMLElementExtended {
@@ -12,8 +12,8 @@ customElements.define('anchor-link', class extends HTMLElementExtended {
     this.addEventListener('mouseout', () => this.style.background = 'none');
   }
 
-  externalCSS() {
-    return cssStr`
+  externalStyles() {
+    return css`
       anchor-link {
         display: inline-block;
         font-size: 1.1rem;

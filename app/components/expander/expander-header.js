@@ -1,7 +1,7 @@
 const {
   customElements,
   HTMLElementExtended,
-  cssStr,
+  css,
   html
 } = require('@webformula/pax-core');
 
@@ -33,8 +33,8 @@ customElements.define('expander-header', class extends HTMLElementExtended {
     `;
   }
 
-  externalCSS() {
-    return cssStr`
+  externalStyles() {
+    return css`
       expander-header {
         display: block;
         position: relative;

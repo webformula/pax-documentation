@@ -3,27 +3,24 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
-const {
-  setConfig,
-  fileHandler
-} = require('@webformula/pax-core');
+const { server } = require('@webformula/pax-core');
 const IP = process.env.IP || '127.0.0.1';
 const PORT = process.env.PORT || 3001;
 
-setConfig({
+server.setConfig({
   /*
    * default: true
    * This will memoize certain methods to prevent unnecessary processing
    * This is essantially equal to static file performance after the first request
    * you can turn off memoization for individual components
    */
-  memoize: true,
+  // memoize: true,
 
   /*
    * default: true
    * user built in service worker to manage cache
    */
-  serviceWorker: true
+  serviceWorker: false
 });
 
 app.use(morgan('dev'));
@@ -36,7 +33,7 @@ app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxA
 
 app.use('*/pax-components.js', express.static('node_modules/@webformula/pax-components/dist/main.js', { maxAge: '1d' }));
 app.use('*/pax-components.css', express.static('node_modules/@webformula/pax-components/dist/style.css', { maxAge: '1d' }));
-app.use(fileHandler.expressFileHandler);
+app.use(server.expressFileHandler);
 
 app.use('/', require('./app/router'));
 
