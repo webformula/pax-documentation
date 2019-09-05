@@ -25,7 +25,7 @@ export default function ({ head, body, title }) {
         <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
         <link rel="manifest" href="manifest.json">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.0-beta/dist/pax-components.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.2-beta/dist/pax-components.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/codemirror.css">
         <link rel="stylesheet" href="/styles/one-dark.css">
         <link rel="stylesheet" href="/styles/main.css">
@@ -36,7 +36,7 @@ export default function ({ head, body, title }) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/javascript/javascript.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.0-beta/dist/pax-components.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.2-beta/dist/pax-components.js"></script>
         <!-- <script src="load-service-worker.js"></script> -->
 
         ${head}

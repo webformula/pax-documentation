@@ -39,9 +39,8 @@ export default function () {
             <span class="title">Lets build</span>
             <a href="#/lets-build/what"><b>1</b>&nbsp What we will build</a>
             <a href="#/lets-build/layout"><b>2</b>&nbsp Layout</a>
-            <a href="#/lets-build/page"><b>3</b>&nbsp Simple page</a>
-            <a href="#/lets-build/interactive-page"><b>4</b>&nbsp Interactive page</a>
-            <a href="#/lets-build/component"><b>5</b>&nbsp Component</a>
+            <a href="#/lets-build/component"><b>3</b>&nbsp Component</a>
+            <a href="#/lets-build/page"><b>4</b>&nbsp Simple page</a>
             <a href="#/lets-build/wrap-up">Wrap up</a>
           </section>
 
