@@ -30,7 +30,7 @@ export default function () {
 
           <section>
             <span class="title">Documentation</span>
-            <a href="#/documentation/getting-started">Getting started</a>
+            <a href="#/documentation/quick-start">Quick start</a>
             <a href="#/documentation/pages">Building Pages</a>
             <a href="#/documentation/web-components">Web componenets</a>
           </section>

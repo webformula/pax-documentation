@@ -13,10 +13,8 @@ export default class GettingStarted extends Page {
 
       <article>
         <article class="into-article">
-          <h2>Getting Started</h2>
-          <p>
-            Lets build a small site
-          </p>
+          <h2>Quick Start guide</h2>
+          <p>Lets build a small site</p>
         </article>
 
         <h6 style="padding-left:24px;">Quick links</h6>
@@ -45,7 +43,7 @@ export default class GettingStarted extends Page {
                 pages/
                   hello-world.js
                 layout.js
-                build.js
+              build.js
               package.json
             </code>
           </code-mirror>
@@ -133,7 +131,7 @@ export default class GettingStarted extends Page {
         <article class="sub-article" id="create-build-script">
           <h4>Create build script</h4>
 
-          <p class="direction">Create build file <b>app/build.js</b></p>
+          <p class="direction">Create build file <b>build.js</b></p>
           <code-mirror mode="javascript">
               import { build } from '@webformula/pax-core';
 
