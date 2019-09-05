@@ -11,7 +11,7 @@
   "scripts": {
     "start": "nodemon --watch app --watch src-docs --exec \"npm run build\" & npm run serve",
     "serve": "http-server dist/ -p 8080",
-    "build": "node --experimental-modules app/client.js && cp -r app/public/* dist/"
+    "build": "node --experimental-modules build.js && cp -r app/public/* dist/"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
