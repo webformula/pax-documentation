@@ -20,34 +20,24 @@ body {
 
 /* --- Side navigation --- */
 
-nav {
-  height: 100%;
+.navigation {
   width: 220px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
   background-color: #364051;
 }
 
-nav section {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-nav section:first-of-type {
-  border-top:  none;
-  padding-top: 36px;
-}
-
-nav .main-title {
+.navigation .main-title {
   color: #7b99c7;
   display: block;
   font-size: 24px;
-  padding-left: 24px;
+  /* padding-left: 24px; */
   line-height: 25px;
+}
+.navigation .main-title:first-child {
+  margin-top: 16px;
+}
+
+nav {
+  padding-top: 24px;
 }
 
 nav .title {
@@ -55,8 +45,12 @@ nav .title {
   display: block;
   font-size: 18px;
   padding-bottom: 12px;
-  padding-left: 24px;
-  /* padding-top: 40px; */
+  padding-top: 24px;
+  margin-left: 16px;
+}
+
+nav mdw-divider {
+  margin-top: 24px;
 }
 
 nav a {
@@ -71,7 +65,7 @@ nav a {
   outline: none;
   border: 0;
   background: transparent;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   overflow: hidden;
   transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
   border-radius: 0;
@@ -84,7 +78,13 @@ nav a {
 
   width: 100%;
   line-height: 18px;
-  padding: 12px 24px;
+  padding: 12px 8px;
+  margin-left: 8px;
+  /* margin: 8px; */
+}
+
+.links {
+  display: inline-block;
 }
 
 nav expander-content a {
