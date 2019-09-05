@@ -14,7 +14,7 @@ export default function () {
           <span class="title">Welcome</span>
           <a href="#/introduction">Introduction</a>
 
-          <expander-container>
+          <!-- <expander-container>
             <expander-header>
               <span class="expander-label">Links</span>
               <expander-arrow></expander-arrow>
@@ -26,7 +26,7 @@ export default function () {
               <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="new">MDN Web components</a>
               <a href="https://www.w3.org/standards/techs/components#w3c_all" target="new">Web components spec</a>
             </expander-content>
-          </expander-container>
+          </expander-container> -->
 
           <section>
             <span class="title">Documentation</span>
