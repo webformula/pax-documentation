@@ -12,7 +12,7 @@ export default function () {
       <mdw-drawer-content>
         <nav>
           <span class="title">Welcome</span>
-          <a href="#/">Introduction</a>
+          <a href="#/introduction">Introduction</a>
 
           <expander-container>
             <expander-header>

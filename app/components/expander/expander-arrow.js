@@ -6,7 +6,9 @@ customElements.define('expander-arrow', class extends HTMLElementExtended {
   }
 
   connectedCallback() {
-    this.parentNode.registerArrow(this);
+    setTimeout(() => {
+      this.parentNode.registerArrow(this);
+    }, 0);
   }
 
   open() {
