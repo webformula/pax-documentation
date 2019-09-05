@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class SimplePage extends Page {
+export default class SimplePage extends Page {
   get title() {
     return 'Simple page';
   }
@@ -32,11 +29,44 @@ module.exports = class SimplePage extends Page {
           <h4>Build simple page</h4>
           <p>Its time to say "hello world"</p>
           <div class="direction">create file: <b>hello-world.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/14da54e322380020997358d9259938a9"></gist-embed>
+          <code-mirror mode="javascript">
+              import { Page, html, css } from '@webformula/pax-core';
+
+              export default class HelloWorld extends Page {
+                // page title. This returns from the page.build() method
+                get title() {
+                  return 'Hello World';
+                }
+
+                /* onclick() method is made available on the element
+                 * you can access the pages methods by using '$HelloWorld' in the html
+                 * the class alias ($HelloWorld) is gerenated based on the class name
+                 */
+                onclick() {
+                  alert('clicked');
+                }
+
+                // optional css
+                styles() {
+                  return css\`
+                    body {
+                      margin: 0;
+                    }
+                  \`;
+                }
+
+                template() {
+                  return html\`
+                    <h2>Hello World</h2>
+                    <button onclick="$HelloWorld.onclick()">click me</button>
+                  \`;
+                }
+              }
+          </code-mirror>
         </article>
 
         <a class="button" href="/lets-build/interactive-page">Next: Lets build - 4. Interactive page</a>
       </article>
     `;
   }
-};
+}

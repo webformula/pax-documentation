@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class WrapUp extends Page {
+export default class WrapUp extends Page {
   get title() {
     return 'Wrap up';
   }
@@ -22,4 +19,4 @@ module.exports = class WrapUp extends Page {
       </article>
     `;
   }
-};
+}

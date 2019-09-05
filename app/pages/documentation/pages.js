@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class BuildingPages extends Page {
+export default class BuildingPages extends Page {
   get title() {
     return 'Building pages';
   }
@@ -32,17 +29,98 @@ module.exports = class BuildingPages extends Page {
         <article class="sub-article" id="basic-page">
           <h4>Basic page</h4>
           <p>Basic page that uses server-side rendering</p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/9cfe4b0bfbab4f386cb1158999719dda"></gist-embed>
+          <code-mirror mode="javascript">
+              // basic page that uses server side rendering
+              import { Page, html } from '@webformula/pax-core';
+
+              export default class BasicPage extends Page {
+                constructor() {
+                  super();
+                  this.label = 'Basic Page';
+                }
+
+                get title() {
+                  return 'Basic page';
+                }
+
+                template() {
+                  return html\`
+                    <div id="content">
+                      <h2>\${this.label}</h2>
+                    </div>
+                  \`;
+                }
+              };
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="interactive-page">
           <h4>Interactive page</h4>
-          <p>Interactive page that initially renders server-side and then rerenders on the client once the client loads the required data. The page also re-renders when the drop downs are updated</p>
-            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/00a0674ad885506c5f87df580be642b5"></gist-embed>
+          <p>Rerender the page when data is updated</p>
+          <code-mirror mode="javascript">
+              import { Page, html } from '@webformula/pax-core';
+              import { getStates } from '../services/states';
+
+              export default class InteractivePage extends Page {
+                constructor() {
+                  super();
+                  this.list = [];
+                  this.states = [];
+                  this.cities = [];
+                  this.selectedState = null;
+                  this.selectedCity = null;
+                }
+
+                // page title
+                get title() {
+                  return 'Interactive';
+                }
+
+                async connectedCallback() {
+                  // axios is imported by the client
+                  const { data } = await axios.get('/api/states');
+                  this.states = data.states;
+                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                }
+
+                stateSelectChange(value) {
+                  this.selectedState = value;
+                  const state = this.states.find(i => i.name === value);
+                  if (state) this.cities = state.cities;
+                  else this.cities = [];
+                  this.selectedCity = null;
+                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                }
+
+                citySelectChange(value) {
+                  this.selectedCity = value;
+                }
+
+                template() {
+                  return html\`
+                    <h2>Interactive</h2>
+                    <div>
+                      <select onchange="$homePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
+                        <option value="" disabled>State...</option>
+                        \${this.states.map(s => html\`
+                          <option value="\${s.name}">\${s.name}</option>
+                        \`).join('\n')}
+                      </select>
+                      <select onchange="$homePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
+                        <option value="" disabled>City...</option>
+                        \${this.cities.map(c => html\`
+                          <option value="\${c.name}">\${c.name}</option>
+                        \`).join('\n')}
+                      </select>
+                    </div>
+                  \`;
+                }
+              }
+          </code-mirror>
         </article>
 
         <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a>
       </article>
     `;
   }
-};
+}

@@ -1,22 +1,8 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class Introduction extends Page {
+export default class Introduction extends Page {
   get title() {
     return 'Introduction';
-  }
-
-  test(e) {
-    console.log('okokokoko');
-    console.log(e)
-  }
-
-  mockWait() {
-    return new Promise(resolve => {
-      setTimeout(resolve, 5000);
-    });
   }
 
   template() {
@@ -37,7 +23,7 @@ module.exports = class Introduction extends Page {
           <p>Browsers, javascript, css, and html are evolving in a uniform and predictable pace. Many features that are provided by frameworks(react, angular, vue, jquery) are now available in native forms in the browser. It is time to start looking at building web sites and applications the way we used to, nativly and with out loads of dependencies. With web-components spec becoming V1 we now have one of the last major features that frameworks provide in a native form (custom html with code associated to it). In short lets learn / return to javascript, css, and html at its core</p>
 
           <h5>Goals</h5>
-          <img src="assets/images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
+          <img src="images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
           <div class="row">
             <div class="flex column-article">
               <h6>Perform</h6>

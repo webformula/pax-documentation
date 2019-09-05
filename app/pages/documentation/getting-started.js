@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class LoadingClient extends Page {
+export default class GettingStarted extends Page {
   get title() {
     return 'Getting started';
   }
@@ -18,71 +15,149 @@ module.exports = class LoadingClient extends Page {
         <article class="into-article">
           <h2>Getting Started</h2>
           <p>
-            This quick start guide will show you how to get a web-page built using <a href="https://expressjs.com/" target="new">Expressjs</a>
+            Lets build a small site
           </p>
         </article>
 
         <h6 style="padding-left:24px;">Quick links</h6>
         <ul>
-          <li><anchor-link selector="#structure" offset="56px">Project structure</anchor-link></li>
-          <li><anchor-link selector="#installation" offset="56px">Installation</anchor-link></li>
-          <li><anchor-link selector="#create-our-fist-page" offset="56px">Create our fist page</anchor-link></li>
-          <li><anchor-link selector="#create-page-layout" offset="56px">Create page layout</anchor-link></li>
-          <li><anchor-link selector="#create-server" offset="56px">Create server</anchor-link></li>
-          <li><anchor-link selector="#lets-run-it" offset="56px">Lets run it</anchor-link></li>
+          <li><anchor-link selector="#structure" offset="56">Project structure</anchor-link></li>
+          <li><anchor-link selector="#installation" offset="56">Installation</anchor-link></li>
+          <li><anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link></li>
+          <li><anchor-link selector="#create-layout" offset="56">Create layout</anchor-link></li>
+          <li><anchor-link selector="#create-build-script" offset="56">Create build script</anchor-link></li>
+          <li><anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link></li>
           <li><a href="/documentation/pages">Next: Building pages</a></li>
         </ul>
 
         <article class="sub-article" id="a-quick-note">
           <h4>A quick note</h4>
           <p>
-            If you looking for a real world example, you can check out the repo for this website. The pacts documentation website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub Repo</a>
+            If you looking for a real world example, you can check out the repo for this website. The PAX documentation website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub Repo</a>
           </p>
         </article>
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/693ecc3816584ca67c51e0ebdf0c7922"></gist-embed>
+          <code-mirror mode="javascript">
+            <code>
+              app/
+                pages/
+                  hello-world.js
+                layout.js
+                build.js
+              package.json
+            </code>
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="installation">
           <h4>Installation</h4>
           <p>You can install pax-core through NPM</p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/8dd67b76eded0e6ba1d59cf6f2eb857f"></gist-embed>
-
-          <div class="spacer"></div>
-          <h5>Install Expressjs</h5>
-          <p>Express is not required, but we are using it to server our website in this example</p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/16406fd959ddfbe44d15dbd2f25a9dd2"></gist-embed>
+          <code-mirror mode="html">
+            <code>
+              npm i @webformula/pax-core --save
+            </code>
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="create-our-fist-page">
           <h4>Create our fist page</h4>
 
           <p class="direction">Create page file <b>app/pages/hello-world.js</b></p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/63012115e116c113c5ecbb4974905771"></gist-embed>
+          <code-mirror mode="javascript">
+              import { Page, html, css } from '@webformula/pax-core';
+
+              export default class HelloWorld extends Page {
+                // page title. This returns from the page.build() method
+                get title() {
+                  return 'Hello World';
+                }
+
+                /* onclick() method is made available on the element
+                 * you can access the pages methods by using '$HelloWorld' in the html
+                 * the class alias ($HelloWorld) is gerenated based on the class name
+                 */
+                onclick() {
+                  alert('clicked');
+                }
+
+                // optional css
+                styles() {
+                  return css\`
+                    body {
+                      margin: 0;
+                    }
+                  \`;
+                }
+
+                template() {
+                  return html\`
+                    <h2>Hello World</h2>
+                    <button onclick="$HelloWorld.onclick()">click me</button>
+                  \`;
+                }
+              }
+          </code-mirror>
         </article>
 
-        <article class="sub-article" id="create-page-layout">
-          <h4>Create page layout</h4>
+        <article class="sub-article" id="create-layout">
+          <h4>Create layout</h4>
           <p>We are simply using a function with a template string to produce a page layout</p>
 
           <p class="direction">Create layout file <b>app/layout.js</b></p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/fe53ac85669c94f884460bd89c53a68a"></gist-embed>
+          <code-mirror mode="javascript">
+              import { html } from '@webformula/pax-core';
+
+              export default function ({ head, body, title }) {
+                return \`
+                  <!-- <!doctype html> -->
+                  <!-- <html lang="en"> -->
+                    <!-- <head> -->
+                      <meta http-equiv="Cache-Control" content="no-store" />
+                      <title>\${title}</title>
+                      <!-- web-components-node styles and scripts. This includes components -->
+                      <link rel="stylesheet" href="pax.css">
+                      <script src="pax.js"></script>
+                      \${head}
+                    <!-- </head> -->
+                    <!-- <body> -->
+                      \${body}
+                    <!-- </body> -->
+                  <!-- </html> -->
+                \`;
+              }
+          </code-mirror>
         </article>
 
-        <article class="sub-article" id="create-server">
-          <h4>Create server</h4>
-          <p>This is an express server</p>
+        <article class="sub-article" id="create-build-script">
+          <h4>Create build script</h4>
 
-          <p class="direction">Create server file <b>app/server.js</b></p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/e09a08f1af20d9a8da9943e61b699e07"></gist-embed>
+          <p class="direction">Create build file <b>app/build.js</b></p>
+          <code-mirror mode="javascript">
+              import { build } from '@webformula/pax-core';
+
+              build({
+                rootFolder: 'app',
+                pagesFolder: 'pages',
+                layoutFilePath: 'app/layout.js',
+                distFolder: 'dist',
+                routeConfig: {
+                  // page class name
+                  root: 'HelloWorld'
+                }
+              });
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="lets-run-it">
           <h4>Lets run it</h4>
           <p>You no have a fully functional site!</p>
-          <gist-embed hide-footer no-scroll height="18" src="https://gist.github.com/B-3PO/03757b8d9623fec75b54499a963209ee"></gist-embed>
+          <code-mirror mode="html">
+            <code>
+              node app/build.js
+            </code>
+          </code-mirror>
           <div class="direction">Navigate to <a href="http://localhost:3001/hello-world">http://localhost:3001/hello-world</a></div>
         </article>
 
@@ -90,4 +165,4 @@ module.exports = class LoadingClient extends Page {
       </article>
     `;
   }
-};
+}

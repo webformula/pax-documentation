@@ -1,10 +1,6 @@
-const {
-  Page,
-  html,
-  cssStr
-} = require('@webformula/pax-core');
+import { Page,  html,  css } from '/@webformula/pax-core/index.js'
 
-module.exports = class LoadingClient extends Page {
+export default class LoadingClient extends Page {
   constructor() {
     super();
     this.loading = true;
@@ -80,7 +76,7 @@ module.exports = class LoadingClient extends Page {
 
   // This is a convinience method. It is suggested you load your css in a file
   css() {
-    return cssStr`
+    return css`
       .styled-list {
         padding: 0;
         margin: 0;
@@ -110,4 +106,4 @@ module.exports = class LoadingClient extends Page {
       }
     `;
   }
-};
+}

@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class BrowserFeatures extends Page {
+export default class BrowserFeatures extends Page {
   get title() {
     return 'Browser features';
   }
@@ -45,4 +42,4 @@ module.exports = class BrowserFeatures extends Page {
       </article>
     `;
   }
-};
+}

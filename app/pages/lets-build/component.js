@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class Component extends Page {
+export default class Component extends Page {
   get title() {
     return 'Component';
   }
@@ -48,18 +45,138 @@ module.exports = class Component extends Page {
             create file: <b>progress-bar.js</b><br />
             Require <b>progress-bar.js</b> in the <b>server.js</b> file.
           </div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c262c72caf018bd56bce300481074cd6"></gist-embed>
+          <code-mirror mode="javascript">
+              /*
+               * HTML
+               * <basic-link link="1234">label</basic-link>
+               */
+              import { HTMLElementExtended, css, html } from '@webformula/pax-core';
+
+              customElements.define('progress-bar', class extends HTMLElementExtended {
+                constructor() {
+                  super();
+
+                  // this is provided by HTMLElementExtended
+                  // This will use the prerendered template based on your html() and css() methods
+                  this.cloneTemplate();
+                }
+
+                connectedCallback() {
+                  if (this.percent === null) this.classList.add('query')
+                }
+
+                static get observedAttributes() {
+                  return ['percent'];
+                }
+
+                attributeChangedCallback(name, _oldValue, newValue) {
+                  this[name] = newValue;
+                }
+
+                get bar() {
+                  if (!this._bar) this._bar = this.shadowRoot.querySelector('.bar');
+                  return this._bar;
+                }
+
+                get percent() {
+                  return this.getAttribute('percent');
+                }
+
+                set percent(value) {
+                  if (value < 0) value = 0;
+                  if (value > 100) value = 100;
+                  this.bar.style.width = \`\${value}%\`;
+                }
+
+                styles() {
+                  return css\`
+                    :host {
+                      display: block;
+                      position: relative;
+                      width: 100%;
+                      height: 6px;
+                      padding-top: 0;
+                      margin-bottom: 0;
+                      background-color: #d4e5ff;
+                    }
+                    .bar {
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      bottom: 0;
+                      width: 100%;
+                      height: 6px;
+                      background-color: #7499cb;
+                    }
+                    :host(.query) .bar {
+                      transition: all 0.2s linear;
+                      animation: query .8s infinite cubic-bezier(0.390, 0.575, 0.565, 1.000);
+                    }
+                    @keyframes query {
+                      0% {
+                        opacity: 1;
+                        transform: translateX(35%) scale(.3, 1);
+                      }
+                      100% {
+                        opacity: 0;
+                        transform: translateX(-50%) scale(0, 1);
+                      }
+                    }
+                  \`;
+                }
+
+                template() {
+                  return html\`
+                    <div class="bar"></div>
+                  \`;
+                }
+              });
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="two">
           <h4>Add progress bar to page</h4>
           <p>Lets add the progress bar to the hello world page</p>
           <div class="direction">update file: <b>hello-world.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c6299f37c9c0a2106d29f4406a5af17f"></gist-embed>
+          <code-mirror mode="javascript">
+              // basic page that uses server side rendering
+              import { Page, html } from '@webformula/pax-core';
+
+              export default class HelloWorld extends Page {
+                get title() {
+                  return 'Basic page';
+                }
+
+                connectedCallback() {
+                  /* pages are slotted so you need to go through the slot to get to the elements.
+                   * To make the easier you can access the render block directly. This is provided by web-componenets-node
+                   * Example without renderBlock: this.shadowRoot.querySelector("slot").assignedNodes().find(n => n.nodeName === "RENDER-BLOCK")
+                   */
+                  const percentProgressBar = document.querySelector('#percent-progress-bar');
+                  let percent = 0;
+                  const interval = setInterval(() => {
+                    percent += 0.1;
+                    percentProgressBar.setAttribute('percent', percent);
+                    if (percent === 100) clearInterval(interval);
+                  }, 1);
+                }
+
+                template() {
+                  return html\`
+                    <h2>Hello world</h2>
+
+                    <!-- default progress bar uses query animation -->
+                    <progress-bar></progress-bar>
+                    <!-- you can also use percent(0-100) -->
+                    <progress-bar id="percent-progress-bar" percent="0"></progress-bar>
+                  \`;
+                }
+              };
+          </code-mirror>
         </article>
 
         <a class="button" href="/examples/loading-client">Next: Examples</a>
       </article>
     `;
   }
-};
+}

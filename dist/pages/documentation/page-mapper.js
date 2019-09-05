@@ -1,10 +1,6 @@
-const {
-  Page,
-  html,
-  cssStr
-} = require('@webformula/pax-core');
+import { Page,  html } from '/@webformula/pax-core/index.js'
 
-module.exports = class PageMapper extends Page {
+export default class PageMapper extends Page {
   get title() {
     return 'Page mapper';
   }
@@ -63,4 +59,4 @@ module.exports = class PageMapper extends Page {
       </article>
     `;
   }
-};
+}

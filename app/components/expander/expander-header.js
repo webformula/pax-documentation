@@ -1,9 +1,4 @@
-const {
-  customElements,
-  HTMLElementExtended,
-  css,
-  html
-} = require('@webformula/pax-core');
+import { HTMLElementExtended, css } from '@webformula/pax-core';
 
 customElements.define('expander-header', class extends HTMLElementExtended {
   constructor() {

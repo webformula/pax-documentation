@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class InteractivePage extends Page {
+export default class InteractivePage extends Page {
   get title() {
     return 'Interactive page';
   }
@@ -34,7 +31,24 @@ module.exports = class InteractivePage extends Page {
           <h4>Add service</h4>
           <p>We will add a simple service to provide a small list of states and cities</p>
           <div class="direction">create file: <b>service.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/f5137683c43f76377136301f1921f7cb"></gist-embed>
+          <code-mirror mode="javascript">
+            <code>
+                const states = () => ([
+                  { label: 'Texas', cities: [
+                    { label: 'Austin' },
+                    { label: 'Dallas' },
+                    { label: 'Houston' }
+                  ] },
+                  { label: 'Pensylvania', cities: [
+                    { label: 'Allentown' },
+                    { label: 'Philadelphia' },
+                    { label: 'Pittburg' }
+                  ] }
+                ]);
+
+                export { states };
+            </code>
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="route">
@@ -44,18 +58,85 @@ module.exports = class InteractivePage extends Page {
             open file: <b>server.js<b><br />
             Insert new endpoint before page router on line <a href="https://gist.github.com/B-3PO/f0c8ab86789e591e0d5a147a055940c6#file-web-components-node-create-server-js-L19">19</a>
           </div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/e11349108b974e118572673578c15f12"></gist-embed>
+          <code-mirror mode="javascript">
+            <code>
+                import { states } from 'service';
+
+                router.get('/api/states', (_req, res) => {
+                  res.send({ states: states() });
+                });
+            </code>
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="page">
           <h4>Build interactive page</h4>
           <p>Lets get interactive!</p>
           <div class="direction">create file: <b>state-city-page.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/7065796eb749b894ae402fe3616d6177"></gist-embed>
+          <code-mirror mode="javascript">
+              import { Page, html } from '@webformula/pax-core';
+              import { states } from '../service';
+
+              export default class InteractivePage extends Page {
+                constructor() {
+                  super();
+                  this.list = [];
+                  this.states = [];
+                  this.cities = [];
+                  this.selectedState = null;
+                  this.selectedCity = null;
+                }
+
+                // page title
+                get title() {
+                  return 'Interactive';
+                }
+
+                async connectedCallback() {
+                  // axios is imported by the client
+                  const { data } = await axios.get('/api/states');
+                  this.states = data.states;
+                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                }
+
+                stateSelectChange(value) {
+                  this.selectedState = value;
+                  const state = this.states.find(i => i.name === value);
+                  if (state) this.cities = state.cities;
+                  else this.cities = [];
+                  this.selectedCity = null;
+                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                }
+
+                citySelectChange(value) {
+                  this.selectedCity = value;
+                }
+
+                template() {
+                  return html\`
+                    <h2>Interactive</h2>
+                    <div>
+                      <select onchange="$homePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
+                        <option value="" disabled>State...</option>
+                        \${this.states.map(s => html\`
+                          <option value="\${s.name}">\${s.name}</option>
+                        \`).join('\n')}
+                      </select>
+                      <select onchange="$homePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
+                        <option value="" disabled>City...</option>
+                        \${this.cities.map(c => html\`
+                          <option value="\${c.name}">\${c.name}</option>
+                        \`).join('\n')}
+                      </select>
+                    </div>
+                  \`;
+                }
+              }
+          </code-mirror>
         </article>
 
         <a class="button" href="/lets-build/component">Next: Lets build - 5. Component</a>
       </article>
     `;
   }
-};
+}

@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class WebComponents extends Page {
+export default class WebComponents extends Page {
   get title() {
     return 'Web components';
   }
@@ -24,33 +21,96 @@ module.exports = class WebComponents extends Page {
 
         <h6 style="padding-left:24px;">Quick links</h6>
         <ul>
-          <li><anchor-link selector="#include-web-components" offset="56px">Include web components</anchor-link></li>
           <li><anchor-link selector="#standard-web-components" offset="56px">Standard web component</anchor-link></li>
           <li><anchor-link selector="#web-component-with-render" offset="56px">Web component with render</anchor-link></li>
         </ul>
 
-        <article class="sub-article" id="include-web-components">
-          <h4>Include web components</h4>
-          <p>You can use the file handlers to include your components</p>
-          <div class="direction">Include file handler in server</div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/95585aae083dd3c6a7ef9c114d1a423c"></gist-embed>
-          <div class="direction">include styles, scripts, and components in html head</div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c147495c0cebaa6862e8be840818b301"></gist-embed>
-        </article>
-
         <article class="sub-article" id="standard-web-components">
           <h4>Standard web component</h4>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/de097083caa213b7331c2020ac50eb67"></gist-embed>
+          <code-mirror mode="javascript">
+              /*
+               * HTML
+               * <basic-link link="1234">label</basic-link>
+               */
+              import { HTMLElementExtended } from '@webformula/pax-core';
+
+              customElements.define('basic-link', class extends HTMLElementExtended {
+                constructor() {
+                  super();
+
+                  // this is provided by HTMLElementExtended
+                  // This will use the prerendered template based on your html() and css() methods
+                  this.cloneTemplate();
+                }
+
+                template() {
+                  return \`
+                    <a href="\${this.link}">
+                      <slot></slot>
+                    </a>
+                  \`;
+                }
+
+                get link() {
+                  return this.getAttribute('link');
+                }
+              });
+          </code-mirror>
         </article>
 
         <article class="sub-article" id="web-component-with-render">
           <h4>Web component with render</h4>
           <p>We are using the 'defineWithRender' method. This will provide the component with a render method. We can now re-render when the list attribute is updated</p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/ce89a3c5ab2e7df601cb39b84ad02737"></gist-embed>
+          <code-mirror mode="javascript">
+              /*
+               * HTML
+               * <simple-select list="1,2,3"></simple-select>
+               */
+              import { HTMLElementExtended } from '@webformula/pax-core';
+
+              customElements.define('simple-select', class extends HTMLElementExtended {
+                constructor() {
+                  super();
+                  this.selected = null;
+                  this.list = this.getAttribute('list') || '';
+                }
+
+                connectedCallback() {
+                  this.render(); // This is provided by HTMLElementExtended
+                  this.shadowRoot.querySelector('select').addEventListener('change', event => {
+                    this.selected = event.target.value;
+                  });
+                }
+
+                static get observedAttributes() {
+                  return ['list'];
+                }
+
+                attributeChangedCallback(name, oldValue, newValue) {
+                  this[name] = newValue;
+                }
+
+                set list(value) {
+                  this._list = value.split(',');
+                  this.selected = null;
+                  this.render(); // re-render new list. This is provided by HTMLElementExtended
+                }
+
+                template() {
+                  return \`
+                    <select>
+                      \${this._list.map(i => \`
+                        <option value="\${i}" \${this.selected === i ? 'selected' : ''}>\${i}</option>
+                      \`).join('\n')}
+                    </select>
+                  \`;
+                }
+              });
+          </code-mirror>
         </article>
 
         <a class="button" href="/lets-build/server">Next: Lets build</a>
       </article>
     `;
   }
-};
+}

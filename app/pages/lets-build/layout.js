@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class Layout extends Page {
+export default class Layout extends Page {
   get title() {
     return 'Layout';
   }
@@ -32,11 +29,36 @@ module.exports = class Layout extends Page {
           <h4>Main layout</h4>
           <p>This will wrap all the pages</p>
           <div class="direction">create file: <b>layout.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/d27a2850a47156f3808e69dd5336fb5c"></gist-embed>
+          <code-mirror mode="javascript">
+              import { html } from '@webformula/pax-core';
+
+              export default function ({ head, body, title }) {
+                return \`
+                  <!-- <!doctype html> -->
+                  <!-- <html lang="en"> -->
+                    <!-- <head> -->
+                      <meta http-equiv="Cache-Control" content="no-store" />
+                      <title>\${title}</title>
+                      <!-- this will get used for the interactive page -->
+                      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+                      <!-- web-components-node js and css -->
+                      <!-- These are handled by thee expressFileHandler in server.js -->
+                      <link rel="stylesheet" href="http://localhost:3001/pax.css">
+                      <script src="http://localhost:3001/pax.js"></script>
+                      \${head}
+                    <!-- </head> -->
+                    <!-- <body> -->
+                      \${body}
+                    <!-- </body> -->
+                  <!-- </html> -->
+                \`;
+              }
+          </code-mirror>
         </article>
 
         <a class="button" href="/lets-build/page">Next: Lets build - 3. Page</a>
       </article>
     `;
   }
-};
+}

@@ -1,30 +1,38 @@
-const {
-  customElements,
-  HTMLElementExtended,
-  css
-} = require('@webformula/pax-core');
+import { HTMLElementExtended, css } from '@webformula/pax-core';
 
 customElements.define('anchor-link', class extends HTMLElementExtended {
   constructor() {
     super();
-    this.addEventListener('click', this.click.bind(this));
-    this.addEventListener('mouseover', () => this.style.background = 'aliceblue');
-    this.addEventListener('mouseout', () => this.style.background = 'none');
+    this.addEventListener('click', this.scrollTo.bind(this));
+  }
+
+  connectedCallback() {
+    const param = router.getParameter('anchor');
+    if (param && param.replace('hash-', '#') === this.selector) {
+      setTimeout(() => {
+        this.scrollTo();
+      }, 0);
+    }
   }
 
   externalStyles() {
     return css`
       anchor-link {
-        display: inline-block;
-        font-size: 1.1rem;
-        font-weight: lighter;
-        color: #7499cb;
+        display: block;
+        font-family: Roboto,Arial,Helvetica,sans-serif;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        letter-spacing: .2px;
+        font-weight: 500;
+        text-decoration: none;
+        font-weight: 500;
+        color: #6200ee;
         cursor: pointer;
       }
     `;
   }
 
-  click() {
+  scrollTo() {
     let anchor = this.getAnchor();
     let scrollElement = this.getScrollElement();
     let count = anchor.offsetTop - scrollElement.scrollTop - this.offset;
@@ -33,6 +41,7 @@ customElements.define('anchor-link', class extends HTMLElementExtended {
       left: 0,
       behavior: 'smooth'
     });
+    router.addParameter('anchor', this.selector.replace('#', 'hash-'));
   }
 
   get selector() {
