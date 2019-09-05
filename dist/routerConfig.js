@@ -12,6 +12,7 @@ export const routerConfig = {
     '/lets-build/interactive-page': 'InteractivePage',
     '/lets-build/layout': 'Layout',
     '/lets-build/page': 'SimplePage',
+    '/lets-build/what': 'What',
     '/lets-build/wrap-up': 'WrapUp'
   }
 };

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Build, render and serve web-components">
+    <meta name="theme-color" content="#364051"/>
+
+    <title><span class="pax-core-title">Introduction</span></title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.0-beta/dist/pax-components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/codemirror.css">
+    <link rel="stylesheet" href="/styles/one-dark.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/page.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/addon/runmode/runmode-standalone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.0-beta/dist/pax-components.js"></script>
+    <!-- <script src="load-service-worker.js"></script> -->
+
+    <script type="module" src="@webformula/pax-core/index.js"></script>
+    <script type="module" src="component-templates.js"></script>
+    
+    <script type="module">
+      import '/components/anchor-link.js';
+      import '/components/codemirror.js';
+      import '/components/expander/expander-arrow.js';
+      import '/components/expander/expander-container.js';
+      import '/components/expander/expander-content.js';
+      import '/components/expander/expander-header.js';
+      import '/components/gist-embed.js';
+    
+      import BrowserFeatures from '/pages/documentation/browser-features.js';
+      window.BrowserFeatures = BrowserFeatures;
+      import GettingStarted from '/pages/documentation/getting-started.js';
+      window.GettingStarted = GettingStarted;
+      import BuildingPages from '/pages/documentation/pages.js';
+      window.BuildingPages = BuildingPages;
+      import WebComponents from '/pages/documentation/web-components.js';
+      window.WebComponents = WebComponents;
+      import FourOFour from '/pages/FourOFour.js';
+      window.FourOFour = FourOFour;
+      import Introduction from '/pages/introduction.js';
+      window.Introduction = Introduction;
+      import Component from '/pages/lets-build/component.js';
+      window.Component = Component;
+      import InteractivePage from '/pages/lets-build/interactive-page.js';
+      window.InteractivePage = InteractivePage;
+      import Layout from '/pages/lets-build/layout.js';
+      window.Layout = Layout;
+      import SimplePage from '/pages/lets-build/page.js';
+      window.SimplePage = SimplePage;
+      import What from '/pages/lets-build/what.js';
+      window.What = What;
+      import WrapUp from '/pages/lets-build/wrap-up.js';
+      window.WrapUp = WrapUp;
+    </script>
+    
+    <script type="module" src="@webformula/pax-core/client.js"></script>
+    
+    <!-- create globally accessable instance of page class -->
+    <script type="module">
+      import Introduction from '/pages/Introduction.js';
+    
+      window.$Introduction = new Introduction();
+      window.currentPageClass = window.$Introduction;
+      setTimeout(function () {
+        window.$Introduction.connectedCallback();
+      }, 0);
+    </script>
+  </head>
+
+  <body>
+    <mdw-body>
+      <mdw-drawer class="navigation mdw-locked-open" style="width: 268px;">
+        <mdw-drawer-header>
+          <span class="main-title">PAX</span>
+          <span class="main-title">WEB</span>
+          <span class="main-title">TOOLS</span>
+        </mdw-drawer-header>
+      
+        <mdw-drawer-content>
+          <nav>
+            <span class="title">Welcome</span>
+            <a href="#/">Introduction</a>
+      
+            <expander-container>
+              <expander-header>
+                <span class="expander-label">Links</span>
+                <expander-arrow></expander-arrow>
+              </expander-header>
+      
+              <expander-content class="indent">
+                <a href="https://github.com/webformula/pax-core" target="new">GitHub</a>
+                <a href="https://www.npmjs.com/org/pacts" target="new">npm</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="new">MDN Web components</a>
+                <a href="https://www.w3.org/standards/techs/components#w3c_all" target="new">Web components spec</a>
+              </expander-content>
+            </expander-container>
+      
+            <section>
+              <span class="title">Documentation</span>
+              <a href="#/documentation/getting-started">Getting started</a>
+              <a href="#/documentation/pages">Building Pages</a>
+              <a href="#/documentation/web-components">Web componenets</a>
+            </section>
+      
+            <section>
+              <span class="title">Lets build</span>
+              <a href="#/lets-build/what"><b>1</b>&nbsp What we will build</a>
+              <a href="#/lets-build/layout"><b>2</b>&nbsp Layout</a>
+              <a href="#/lets-build/page"><b>3</b>&nbsp Simple page</a>
+              <a href="#/lets-build/interactive-page"><b>4</b>&nbsp Interactive page</a>
+              <a href="#/lets-build/component"><b>5</b>&nbsp Component</a>
+              <a href="#/lets-build/wrap-up">Wrap up</a>
+            </section>
+      
+            <section>
+              <span class="title">Examples</span>
+            </section>
+          </nav>
+        </mdw-drawer-content>
+      </mdw-drawer>
+      <mdw-page>
+        <header>
+          <mdw-top-app-bar class="mdw-fixed mdw-white">
+            <section>
+              <mdw-icon onclick="document.querySelector('mdw-drawer.navigation').toggle()">menu</mdw-icon>
+              <span class="mdw-title">PAX documentation</span>
+            </section>
+        
+            <section>
+              <!-- <span class="subtext">Welcome to the wounderful world of the web</span> -->
+              <a href="https://github.com/webformula/pax-documentation" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>github-circle-black-transparent</title><path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V19c0 .27.16.59.67.5C17.14 18.16 20 14.42 20 10A10 10 0 0 0 10 0z" fill="#333" fill-rule="evenodd"/></svg>
+              </a>
+            </section>
+          </mdw-top-app-bar>
+        </header>
+        <mdw-content class="constrain-width">
+        <render-block-page>
+          <div class="disclaimer-container">
+            Disclaimer: This is a beta version
+          </div>
+          
+          <article>
+            <article class="into-article">
+              <h3>Introduction</h3>
+              <p>This project promotes the usage of web components. If you are not familiar with the web-component specs then I would suggest reading them first. <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Link</a></p>
+          
+              <h5>What</h5>
+              <p><b>PAX</b> is a set of tools to allow web pages to be built simply, nativly and without stacks of dependencies. The tools add some great features including server-side rendering, dynamic client side rendering, performance (using native browser features), optimizations that reduces load times, managed client side caching, pwa compatability, and more.</p>
+          
+              <h5>Why</h5>
+              <p>Browsers, javascript, css, and html are evolving in a uniform and predictable pace. Many features that are provided by frameworks(react, angular, vue, jquery) are now available in native forms in the browser. It is time to start looking at building web sites and applications the way we used to, nativly and with out loads of dependencies. With web-components spec becoming V1 we now have one of the last major features that frameworks provide in a native form (custom html with code associated to it). In short lets learn / return to javascript, css, and html at its core</p>
+          
+              <h5>Goals</h5>
+              <img src="images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
+              <div class="row">
+                <div class="flex column-article">
+                  <h6>Perform</h6>
+                  <p>
+                    Decrease load times. Increase developer productivity. Interact with native browsers features
+                  </p>
+                </div>
+          
+                <div class="flex column-article">
+                  <h6>Simplify</h6>
+                  <p>
+                    Simplify code and use js, html, css at its core
+                  </p>
+                </div>
+          
+                <div class="flex column-article">
+                  <h6>Reduce Reduce Reduce</h6>
+                  <p>
+                    Reduce the number of dependencies needed to create a web application
+                  </p>
+                </div>
+              </div>
+            </article>
+          
+          </article>
+        </render-block-page>
+        </mdw-content>
+      </mdw-page>
+    </mdw-body>
+  </body>
+</html>
