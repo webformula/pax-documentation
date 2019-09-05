@@ -22,7 +22,7 @@ export default class Introduction extends Page {
           <h5>Why</h5>
           <p>Browsers, javascript, css, and html are evolving in a uniform and predictable pace. Many features that are provided by frameworks(react, angular, vue, jquery) are now available in native forms in the browser. It is time to start looking at building web sites and applications the way we used to, nativly and with out loads of dependencies. With web-components spec becoming V1 we now have one of the last major features that frameworks provide in a native form (custom html with code associated to it). In short lets learn / return to javascript, css, and html at its core</p>
 
-          <h5>Goals</h5>
+          <h5 style="padding-top: 24px;">Goals</h5>
           <img src="images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
           <div class="row">
             <div class="flex column-article">
