@@ -43,11 +43,11 @@ export default class BuildingPages extends Page {
                 }
 
                 styles() {
-                  return `
+                  return \`
                     customclass: {
 
                     }
-                  `;
+                  \`;
                 }
 
                 template() {
