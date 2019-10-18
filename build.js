@@ -5,7 +5,7 @@ build({
   pagesFolder: 'pages',
   layoutFilePath: 'app/layout/index.js',
   distFolder: 'dist',
-  routeConfig: {
+  routerConfig: {
     root: 'introduction',
     fourOFour: 'fourOFour'
   }
