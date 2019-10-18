@@ -28,7 +28,7 @@ export default class What extends Page {
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <code-mirror mode="html">
+          <code-mirror mode="javascript">
               app/
                 layout/
                   index.js
@@ -53,8 +53,8 @@ export default class What extends Page {
                 layoutFilePath: 'app/layout/index.js',
                 distFolder: 'dist',
                 routeConfig: {
-                  root: 'Home',
-                  fourOFour: 'FourOFour'
+                  root: 'home',
+                  fourOFour: 'fourOFour'
                 }
               });
           </code-mirror>

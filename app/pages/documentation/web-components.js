@@ -39,7 +39,7 @@ export default class WebComponents extends Page {
                   super();
 
                   // this is provided by HTMLElementExtended
-                  // This will use the prerendered template based on your html() and css() methods
+                  // This will use the prerendered template based on your template() and styles() methods
                   this.cloneTemplate();
                 }
 
@@ -60,7 +60,7 @@ export default class WebComponents extends Page {
 
         <article class="sub-article" id="web-component-with-render">
           <h4>Web component with render</h4>
-          <p>We are using the 'defineWithRender' method. This will provide the component with a render method. We can now re-render when the list attribute is updated</p>
+          <p>The HTMLElementExtended class provides a render method that you can use to re-render the components html/p>
           <code-mirror mode="javascript">
               /*
                * HTML
@@ -71,6 +71,8 @@ export default class WebComponents extends Page {
               customElements.define('simple-select', class extends HTMLElementExtended {
                 constructor() {
                   super();
+
+                  // default data state
                   this.selected = null;
                   this.list = this.getAttribute('list') || '';
                 }
@@ -99,9 +101,9 @@ export default class WebComponents extends Page {
                 template() {
                   return \`
                     <select>
-                      \${this._list.map(i => \`
+                      \${this._list.map(function (i) return \`
                         <option value="\${i}" \${this.selected === i ? 'selected' : ''}>\${i}</option>
-                      \`).join('\n')}
+                      \`;}).join('\\n')}
                     </select>
                   \`;
                 }
@@ -109,7 +111,9 @@ export default class WebComponents extends Page {
           </code-mirror>
         </article>
 
-        <a class="button" href="/lets-build/server">Next: Lets build</a>
+        <section>
+          <a class="button" href="#/lets-build/what">Next: Lets build</a>
+        </section>
       </article>
     `;
   }

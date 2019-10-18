@@ -113,7 +113,7 @@ export default class Browsers extends Page {
       </div>
 
       <section>
-        <a href="#/documentation/theme">next: Theming</a>
+        <a href="#/documentation/quick-start">next: Quick start</a>
       </section>
     </article>
     `;

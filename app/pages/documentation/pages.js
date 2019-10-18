@@ -15,7 +15,7 @@ export default class BuildingPages extends Page {
         <article class="into-article">
           <h2>Building pages</h2>
           <p>
-          Below are a list of examples showing you how to build pages witha range of features, including server-side rendering and dynamic html
+          Below are a list of examples showing you how to build pages witha range of features, includign dynamic html rendering.
           </p>
         </article>
 
@@ -28,7 +28,6 @@ export default class BuildingPages extends Page {
 
         <article class="sub-article" id="basic-page">
           <h4>Basic page</h4>
-          <p>Basic page that uses server-side rendering</p>
           <code-mirror mode="javascript">
               // basic page that uses server side rendering
               import { Page, html } from '@webformula/pax-core';
@@ -41,6 +40,14 @@ export default class BuildingPages extends Page {
 
                 get title() {
                   return 'Basic page';
+                }
+
+                styles() {
+                  return `
+                    customclass: {
+
+                    }
+                  `;
                 }
 
                 template() {
@@ -64,6 +71,8 @@ export default class BuildingPages extends Page {
               export default class InteractivePage extends Page {
                 constructor() {
                   super();
+
+                  // create default state for data
                   this.list = [];
                   this.states = [];
                   this.cities = [];
@@ -80,7 +89,8 @@ export default class BuildingPages extends Page {
                   // axios is imported by the client
                   const { data } = await axios.get('/api/states');
                   this.states = data.states;
-                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                  // re render page once we recieve data from the server
+                  this.render(); // re-render the page. This method is made available by the 'Page' class
                 }
 
                 stateSelectChange(value) {
@@ -89,7 +99,7 @@ export default class BuildingPages extends Page {
                   if (state) this.cities = state.cities;
                   else this.cities = [];
                   this.selectedCity = null;
-                  this.render(); // re-render the page. This method is made available by \`customElements.exportWithRender\`
+                  this.render(); // re-render the page. This method is made available by the 'Page' class
                 }
 
                 citySelectChange(value) {
@@ -102,15 +112,15 @@ export default class BuildingPages extends Page {
                     <div>
                       <select onchange="$homePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
                         <option value="" disabled>State...</option>
-                        \${this.states.map(s => html\`
+                        \${this.states.map(function (s) { return html\`
                           <option value="\${s.name}">\${s.name}</option>
-                        \`).join('\n')}
+                        \`;}).join('\n')}
                       </select>
                       <select onchange="$homePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
                         <option value="" disabled>City...</option>
-                        \${this.cities.map(c => html\`
+                        \${this.cities.map(function (c) { return html\`
                           <option value="\${c.name}">\${c.name}</option>
-                        \`).join('\n')}
+                        \`;}).join('\n')}
                       </select>
                     </div>
                   \`;
@@ -119,7 +129,9 @@ export default class BuildingPages extends Page {
           </code-mirror>
         </article>
 
-        <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a>
+        <section>
+          <a class="button" href="#/documentation/web-components">Next: Web components</a>
+        </section>
       </article>
     `;
   }

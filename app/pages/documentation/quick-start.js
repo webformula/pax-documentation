@@ -64,7 +64,7 @@ export default class GettingStarted extends Page {
 
           <p class="direction">Create page file <b>app/pages/hello-world.js</b></p>
           <code-mirror mode="javascript">
-              import { Page, html, css } from '@webformula/pax-core';
+              import { Page, html } from '@webformula/pax-core';
 
               export default class HelloWorld extends Page {
                 // page title. This returns from the page.build() method
@@ -82,7 +82,7 @@ export default class GettingStarted extends Page {
 
                 // optional css
                 styles() {
-                  return css\`
+                  return \`
                     body {
                       margin: 0;
                     }
@@ -108,6 +108,9 @@ export default class GettingStarted extends Page {
               import { html } from '@webformula/pax-core';
 
               export default function ({ head, body, title }) {
+
+                // curently having display issues with top level html tags
+                // commenting them out temporarally to get around this problem
                 return \`
                   <!-- <!doctype html> -->
                   <!-- <html lang="en"> -->
@@ -137,12 +140,23 @@ export default class GettingStarted extends Page {
 
               build({
                 rootFolder: 'app',
+                // folder is assumed to be in rootFolder
                 pagesFolder: 'pages',
                 layoutFilePath: 'app/layout.js',
                 distFolder: 'dist',
                 routeConfig: {
                   // page class name
                   root: 'HelloWorld'
+
+                  // 404 not fount pages
+                  fourOFour: 'fourOFour.js',
+
+                  // custom routes
+                  // pages are routed based on folder structure by default
+                  // use this if you want to add a custom routing path
+                  custom: {
+                    "some-custom-url": 'page-subfolder(or not)/file.js'
+                  }
                 }
               });
           </code-mirror>
@@ -159,7 +173,9 @@ export default class GettingStarted extends Page {
           <div class="direction">Navigate to <a href="http://localhost:3001/hello-world">http://localhost:3001/hello-world</a></div>
         </article>
 
-        <a class="button" href="/documentation/pages">Next: Building pages</a>
+        <section>
+          <a class="button" href="#/documentation/pages">Next: Building pages</a>
+        </section>
       </article>
     `;
   }

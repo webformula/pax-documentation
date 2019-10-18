@@ -59,24 +59,26 @@ export default class Layout extends Page {
               export default function () {
                 return html\`
                   <mdw-drawer class="navigation mdw-locked-open" style="width: 268px;">
-                  <mdw-drawer-header>
-                    <div class="mdw-title">PAX</div>
-                    <div class="mdw-subtitle">Documentation example</div>
-                  </mdw-drawer-header>
+                    <mdw-drawer-fixed>
+                      <mdw-drawer-header>
+                        <div class="mdw-title">PAX</div>
+                        <div class="mdw-subtitle">Documentation example</div>
+                      </mdw-drawer-header>
 
-                    <mdw-drawer-content>
-                      <mdw-list>
-                        <mdw-list-item href="#/home" href-alt="#/">
-                          <span class="mdw-list-item__graphic material-icons">inbox</span>
-                          Home
-                        </mdw-list-item>
+                      <mdw-drawer-content>
+                        <mdw-list>
+                          <mdw-list-item href="#/home" href-alt="#/">
+                            <span class="mdw-list-item__graphic material-icons">inbox</span>
+                            Home
+                          </mdw-list-item>
 
-                        <mdw-list-item href="#/ddd">
-                          <span class="mdw-list-item__graphic material-icons">star</span>
-                          Non existing
-                        </mdw-list-item>
-                      </mdw-list>
-                    </mdw-drawer-content>
+                          <mdw-list-item href="#/ddd">
+                            <span class="mdw-list-item__graphic material-icons">star</span>
+                            Non existing
+                          </mdw-list-item>
+                        </mdw-list>
+                      </mdw-drawer-content>
+                    </mdw-drawer-fixed>
                   </mdw-drawer>
                 \`;
               }
@@ -106,24 +108,22 @@ export default class Layout extends Page {
 
                       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
                       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-                      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.2-beta/dist/pax-components.css">
+                      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.css">
                       <link rel="stylesheet" href="/styles/main.css">
 
-                      <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.2.2-beta/dist/pax-components.js"></script>
+                      <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.js"></script>
 
                       \${head}
                     <!-- </head> -->
 
                     <!-- <body> -->
-                      <mdw-body>
-                        \${nav({ title })}
-                        <mdw-page>
-                          \${header({ title })}
-                          <mdw-content class="constrain-width">
-                            \${body}
-                          </mdw-content>
-                        </mdw-page>
-                      </mdw-body>
+                      \${nav({ title })}
+                      <mdw-page>
+                        \${header({ title })}
+                        <mdw-content class="constrain-width">
+                          \${body}
+                        </mdw-content>
+                      </mdw-page>
                     <!-- </body> -->
                   <!-- </html> -->
                 \`;

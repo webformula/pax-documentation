@@ -32,8 +32,6 @@ export default function () {
             <section>
               <span class="title">Documentation</span>
               <a href="#/documentation/browsers">Browser compatability</a>
-              <a href="#/documentation/mobile">Mobile support</a>
-
               <a href="#/documentation/quick-start">Quick start</a>
               <a href="#/documentation/pages">Building Pages</a>
               <a href="#/documentation/web-components">Web componenets</a>
