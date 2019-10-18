@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class WrapUp extends Page {
+export default class WrapUp extends Page {
   get title() {
     return 'Wrap up';
   }
@@ -16,10 +13,17 @@ module.exports = class WrapUp extends Page {
 
       <article>
         <article class="into-article">
-          <h2>You have completed the tutorial!</h2>
-          <p></p>
+          <h3>You have completed the tutorial!</h3>
+          <p>Now run it</p>
+
+          <code-mirror mode="javascript">
+              npm install
+              npm start
+
+              # navigate to http://localhost:8080
+          </code-mirror>
         </article>
       </article>
     `;
   }
-};
+}

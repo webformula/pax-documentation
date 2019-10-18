@@ -1,8 +1,4 @@
-const {
-  customElements,
-  HTMLElementExtended,
-  css
-} = require('@webformula/pax-core');
+import { HTMLElementExtended, css } from '@webformula/pax-core';
 
 customElements.define('expander-arrow', class extends HTMLElementExtended {
   constructor() {
@@ -10,7 +6,9 @@ customElements.define('expander-arrow', class extends HTMLElementExtended {
   }
 
   connectedCallback() {
-    this.parentNode.registerArrow(this);
+    setTimeout(() => {
+      this.parentNode.registerArrow(this);
+    }, 0);
   }
 
   open() {

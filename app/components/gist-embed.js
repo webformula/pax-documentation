@@ -1,8 +1,4 @@
-// TODO hide scroll bar when user has a mouse wheel
-const {
-  customElements,
-  HTMLElementExtended
-} = require('@webformula/pax-core');
+import { HTMLElementExtended } from '@webformula/pax-core';
 
 customElements.define('gist-embed', class extends HTMLElementExtended {
   constructor() {

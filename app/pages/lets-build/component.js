@@ -1,9 +1,6 @@
-const {
-  Page,
-  html
-} = require('@webformula/pax-core');
+import { Page, html } from '@webformula/pax-core';
 
-module.exports = class Component extends Page {
+export default class Component extends Page {
   get title() {
     return 'Component';
   }
@@ -34,32 +31,42 @@ module.exports = class Component extends Page {
 
         <h6 style="padding-left:24px;">Quick links</h6>
         <ul>
-          <li><anchor-link selector="#one" offset="56px">Build a component</anchor-link></li>
+          <li><anchor-link selector="#one" offset="56px">Build a simple component</anchor-link></li>
           <li><anchor-link selector="#two" offset="56px">Add progress bar to page</anchor-link></li>
-          <li><a href="/examples/loading-client">Next: Examples</a></li>
+          <li><a href="#/lets-build/page">Next: 4. build a page</a></li>
         </ul>
 
         <article class="sub-article" id="one">
           <h4>Build a component</h4>
-          <p>We will be building the progress barr you see below</p>
-          <progress-bar></progress-bar>
-          <progress-bar id="percent-progress-bar" percent="0"></progress-bar>
-          <div class="direction">
-            create file: <b>progress-bar.js</b><br />
-            Require <b>progress-bar.js</b> in the <b>server.js</b> file.
-          </div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c262c72caf018bd56bce300481074cd6"></gist-embed>
+          <p>We will be building a simple button component</p>
+          <div class="direction">create file: <b>components/simple-button.js</b></div>
+          <code-mirror mode="javascript">
+              /*
+               * HTML
+               * <basic-link link="1234">label</basic-link>
+               */
+               import { HTMLElementExtended, html } from '@webformula/pax-core';
+
+               customElements.define('simple-button', class extends HTMLElementExtended {
+                 constructor() {
+                   super();
+
+                   this.cloneTemplate();
+                 }
+
+                 template() {
+                   return html\`
+                     <button>
+                       <slot></slot>
+                     </button>
+                   \`;
+                 }
+               });
+          </code-mirror>
         </article>
 
-        <article class="sub-article" id="two">
-          <h4>Add progress bar to page</h4>
-          <p>Lets add the progress bar to the hello world page</p>
-          <div class="direction">update file: <b>hello-world.js</b></div>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c6299f37c9c0a2106d29f4406a5af17f"></gist-embed>
-        </article>
-
-        <a class="button" href="/examples/loading-client">Next: Examples</a>
+        <a href="#/lets-build/page">Next: 4. build a page</a>
       </article>
     `;
   }
-};
+}
