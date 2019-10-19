@@ -7,6 +7,6 @@ This project promotes the usage of web components. If you are not familiar with 
 [components](http://components.webformula.io)
 
 # Example
-- [basic][https://github.com/webformula/pax-documentation-example]
-- [basic with auth][https://github.com/webformula/pax-example-with-auth]
-- [documentation site][https://github.com/webformula/pax-documentation]
+- [basic](https://github.com/webformula/pax-documentation-example)
+- [basic with auth](https://github.com/webformula/pax-example-with-auth)
+- [documentation site](https://github.com/webformula/pax-documentation)
