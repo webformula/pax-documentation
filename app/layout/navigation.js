@@ -35,6 +35,7 @@ export default function () {
               <a href="#/documentation/quick-start">Quick start</a>
               <a href="#/documentation/pages">Building Pages</a>
               <a href="#/documentation/web-components">Web componenets</a>
+              <a href="#/documentation/webpack-bundle">Webpack bundling</a>
             </section>
 
             <section>

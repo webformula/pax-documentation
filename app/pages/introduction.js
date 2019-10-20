@@ -40,7 +40,7 @@ export default class Introduction extends Page {
             </div>
 
             <div class="flex column-article">
-              <h6>Reduce Reduce Reduce</h6>
+              <h6>Reduce</h6>
               <p>
                 Reduce the number of dependencies needed to create a web application
               </p>
