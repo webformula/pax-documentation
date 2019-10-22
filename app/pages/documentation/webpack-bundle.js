@@ -13,13 +13,13 @@ export default class WebpackPage extends Page {
 
       <article>
         <article class="into-article">
-          <h2>Bundle with Webpack</h2>
-          <p>PAX-core was designed to be easily bundled</p>
+          <h2>Routing</h2>
+          <p>PAX-core has a built in router that is simple to use</p>
         </article>
 
         <h6 style="padding-left:24px;">Quick links</h6>
         <ul>
-          <li><anchor-link selector="#webpack" offset="56px">Webpack config</anchor-link></li>
+          <li><anchor-link selector="#webpack" offset="56px">Build config</anchor-link></li>
           <li><anchor-link selector="#build-scripts" offset="56px">Build scripts</anchor-link></li>
           <li><a href="https://github.com/webformula/pax-example-webpack-bundle" target="_new">Github: Example app</a></li>
         </ul>

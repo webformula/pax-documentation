@@ -67,9 +67,27 @@ export default class GettingStarted extends Page {
               import { Page, html } from '@webformula/pax-core';
 
               export default class HelloWorld extends Page {
+                constructor() {
+                  super();
+
+                  // interact with route parameters ('route/:parameter')
+                  this.routerParameters = router.getUrlParameters();
+                  this.routeParamterIs = router.getUrlParameter('id');
+                }
+
                 // page title. This returns from the page.build() method
                 get title() {
                   return 'Hello World';
+                }
+
+                // add page routes
+                // The page will have a default route of its folder location. ('HelloWorld')
+                static get routes() {
+                  return [
+                    // route with parameter
+                    'home/:id',
+                    'two'
+                  ]
                 }
 
                 /* onclick() method is made available on the element
@@ -109,7 +127,7 @@ export default class GettingStarted extends Page {
 
               export default function ({ head, body, title }) {
 
-                // curently having display issues with top level html tags
+                // There is a problem with my code dislaying certain htmt tags
                 // commenting them out temporarally to get around this problem
                 return \`
                   <!-- <!doctype html> -->
@@ -174,7 +192,7 @@ export default class GettingStarted extends Page {
         </article>
 
         <section>
-          <a class="button" href="#/documentation/pages">Next: Building pages</a>
+          <a class="button" href="#/documentation/routing">Next: Routing</a>
         </section>
       </article>
     `;
