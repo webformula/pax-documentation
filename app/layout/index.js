@@ -25,19 +25,37 @@ export default function ({ head, body, title }) {
         <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
         <link rel="manifest" href="manifest.json">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.4-beta/dist/pax-components.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/codemirror.css">
-        <link rel="stylesheet" href="/styles/one-dark.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.12-beta/dist/pax-components.css">
         <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/page.css">
 
-        <script type="module" src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.4-beta/dist/pax-components.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/codemirror.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/addon/runmode/runmode-standalone.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/javascript/javascript.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.js"></script>
-        <!-- <script src="load-service-worker.js"></script> -->
+        <script type="module" src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.12-beta/dist/pax-components.js"></script>
+        <script src="vs/loader.js"></script>
+
+        <script>
+          require(['vs/editor/editor.main'], function () {
+            fetch('vs/themes/NightOwl.json')
+              .then(data => data.json())
+              .then(data => {
+                monaco.editor.defineTheme('NightOwl', data);
+                // monaco.editor.setTheme('NightOwl');
+                window.monacoLoaded = true;
+              });
+          });
+        </script>
+
+        <style>
+          monaco-editor {
+            display: block;
+            width: 100%;
+            min-height: 40px;
+            margin: 20px 0;
+          }
+
+          .monaco-editor {
+            padding: 12px 0;
+          }
+        </style>
 
         ${head}
       </head>

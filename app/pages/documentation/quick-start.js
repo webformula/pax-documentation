@@ -37,33 +37,31 @@ export default class GettingStarted extends Page {
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <code-mirror mode="javascript">
-            <code>
-              app/
-                pages/
-                  hello-world.js
-                layout.js
-              build.js
-              package.json
-            </code>
-          </code-mirror>
+          <monaco-editor language="javascript">
+            app/
+              pages/
+                hello-world.js
+              layout.js
+            build.js
+            package.json
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="installation">
           <h4>Installation</h4>
           <p>You can install pax-core through NPM</p>
-          <code-mirror mode="html">
+          <monaco-editor language="html">
             <code>
               npm i @webformula/pax-core --save
             </code>
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="create-our-fist-page">
           <h4>Create our fist page</h4>
 
           <p class="direction">Create page file <b>app/pages/hello-world.js</b></p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { Page, html } from '@webformula/pax-core';
 
               export default class HelloWorld extends Page {
@@ -114,7 +112,7 @@ export default class GettingStarted extends Page {
                   \`;
                 }
               }
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="create-layout">
@@ -122,38 +120,35 @@ export default class GettingStarted extends Page {
           <p>We are simply using a function with a template string to produce a page layout</p>
 
           <p class="direction">Create layout file <b>app/layout.js</b></p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript" content="${`
               import { html } from '@webformula/pax-core';
 
               export default function ({ head, body, title }) {
-
-                // There is a problem with my code dislaying certain htmt tags
-                // commenting them out temporarally to get around this problem
                 return \`
-                  <!-- <!doctype html> -->
-                  <!-- <html lang="en"> -->
-                    <!-- <head> -->
-                      <meta http-equiv="Cache-Control" content="no-store" />
+                  <!doctype html>
+                  <html lang='en'>
+                    <head>
+                      <meta http-equiv='Cache-Control' content='no-store' />
                       <title>\${title}</title>
                       <!-- web-components-node styles and scripts. This includes components -->
-                      <link rel="stylesheet" href="pax.css">
-                      <script src="pax.js"></script>
+                      <link rel='stylesheet' href='pax.css'>
+                      <script src='pax.js'></script>
                       \${head}
-                    <!-- </head> -->
-                    <!-- <body> -->
+                    </head>
+                    <body>
                       \${body}
-                    <!-- </body> -->
-                  <!-- </html> -->
+                    </body>
+                  </html>
                 \`;
               }
-          </code-mirror>
+          `}"></monaco-editor>
         </article>
 
         <article class="sub-article" id="create-build-script">
           <h4>Create build script</h4>
 
           <p class="direction">Create build file <b>build.js</b></p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { build } from '@webformula/pax-core';
 
               build({
@@ -177,17 +172,17 @@ export default class GettingStarted extends Page {
                   }
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="lets-run-it">
           <h4>Lets run it</h4>
           <p>You no have a fully functional site!</p>
-          <code-mirror mode="html">
+          <monaco-editor language="html">
             <code>
               node app/build.js
             </code>
-          </code-mirror>
+          </monaco-editor>
           <div class="direction">Navigate to <a href="http://localhost:3001/hello-world">http://localhost:3001/hello-world</a></div>
         </article>
 

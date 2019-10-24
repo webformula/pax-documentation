@@ -28,7 +28,7 @@ export default class BuildingPages extends Page {
 
         <article class="sub-article" id="basic-page">
           <h4>Basic page</h4>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               // basic page that uses server side rendering
               import { Page, html } from '@webformula/pax-core';
 
@@ -58,13 +58,13 @@ export default class BuildingPages extends Page {
                   \`;
                 }
               };
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="interactive-page">
           <h4>Interactive page</h4>
           <p>Rerender the page when data is updated</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { Page, html } from '@webformula/pax-core';
               import { getStates } from '../services/states';
 
@@ -126,7 +126,7 @@ export default class BuildingPages extends Page {
                   \`;
                 }
               }
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <section>

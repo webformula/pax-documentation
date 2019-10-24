@@ -28,7 +28,7 @@ export default class What extends Page {
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               app/
                 layout/
                   index.js
@@ -38,13 +38,13 @@ export default class What extends Page {
                   hello-world.js
               build.js
               package.json
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="build">
           <h4>Build script</h4>
           <div class="direction">create file: <b>build.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { build } from '@webformula/pax-core';
 
               build({
@@ -57,7 +57,7 @@ export default class What extends Page {
                   fourOFour: 'fourOFour'
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <a class="button" href="#/lets-build/layout">Next: Lets build - 2. Layout</a>

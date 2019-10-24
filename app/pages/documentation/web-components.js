@@ -27,7 +27,7 @@ export default class WebComponents extends Page {
 
         <article class="sub-article" id="standard-web-components">
           <h4>Standard web component</h4>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               /*
                * HTML
                * <basic-link link="1234">label</basic-link>
@@ -55,13 +55,13 @@ export default class WebComponents extends Page {
                   return this.getAttribute('link');
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="web-component-with-render">
           <h4>Web component with render</h4>
           <p>The HTMLElementExtended class provides a render method that you can use to re-render the components html/p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               /*
                * HTML
                * <simple-select list="1,2,3"></simple-select>
@@ -108,7 +108,7 @@ export default class WebComponents extends Page {
                   \`;
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <section>

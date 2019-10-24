@@ -40,7 +40,7 @@ export default class Component extends Page {
           <h4>Build a component</h4>
           <p>We will be building a simple button component</p>
           <div class="direction">create file: <b>components/simple-button.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               /*
                * HTML
                * <basic-link link="1234">label</basic-link>
@@ -62,7 +62,7 @@ export default class Component extends Page {
                    \`;
                  }
                });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <a href="#/lets-build/page">Next: 4. build a page</a>

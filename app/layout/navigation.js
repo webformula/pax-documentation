@@ -50,6 +50,8 @@ export default function () {
 
             <section>
               <span class="title">Examples</span>
+              <a href="#/examples/examples">Examples</a>
+              <a href="https://github.com/webformula/pax-example-with-auth"><mdw-icon style="padding-right: 12px" mdw-src="GitHub-Mark-light-32px.png"></mdw-icon>Basic with login</a>
             </section>
           </nav>
         </mdw-drawer-content>

@@ -36,7 +36,7 @@ export default class Routing extends Page {
           <h4>Default routes</h4>
           <p>All pages in teh page folder have a default route</p>
           <p>You can add custom routes in 2 different places. Read next sections to find out how</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               // Folder structure
                 app/
                   pages/
@@ -54,13 +54,13 @@ export default class Routing extends Page {
                 home: www.site.com/#/home
                 subfolder/one: www.site.com/#/subfolder/one
                 subfolder/two: www.site.com/#/subfolder/two
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="build-config">
           <h4>Build config</h4>
           <p>You can configure all or some of your routes in the build config</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { build } from '@webformula/pax-core';
 
               build({
@@ -84,13 +84,13 @@ export default class Routing extends Page {
                   }
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="page-routes">
           <h4>Page config</h4>
           <p>You can configure custom routes in the page itself</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { Page, html } from '@webformula/pax-core';
 
               export default class Home extends Page {
@@ -111,14 +111,14 @@ export default class Routing extends Page {
                   ]
                 }
               });
-          </code-mirror>
+          </monaco-editor>
         </article>
 
 
         <article class="sub-article" id="router-methods">
           <h4>Router methods</h4>
           <p>Custom methods to provider functionality not in the browsers</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               // --- Url Prarameters ---
 
               // Get url parameters
@@ -144,7 +144,7 @@ export default class Routing extends Page {
               location.hash = '/home'; // navigate home: www.site.com/#/home
               location.href; // http://www.site.com/#/home
               router.current; // http://www.site.com/#/home
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <section>

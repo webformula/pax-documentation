@@ -27,7 +27,7 @@ export default class SimplePage extends Page {
           <h4>Build simple Home page</h4>
           <p>Its time to say "hello world"</p>
           <div class="direction">create file: <b>pages/home.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { Page, html } from '@webformula/pax-core';
 
               export default class Home extends Page {
@@ -47,7 +47,7 @@ export default class SimplePage extends Page {
                   \`;
                 }
               };
-          </code-mirror>
+          </monaco-editor>
         </article>
 
 
@@ -55,7 +55,7 @@ export default class SimplePage extends Page {
           <h4>Build simple 404 page</h4>
           <p>This will show on any invalid url</p>
           <div class="direction">create file: <b>pages/fourOFour.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { Page, html } from '@webformula/pax-core';
 
               export default class FourOFour extends Page {
@@ -69,7 +69,7 @@ export default class SimplePage extends Page {
                   \`;
                 }
               };
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <a class="button" href="#/lets-build/wrap-up">Next: Wrap up</a>

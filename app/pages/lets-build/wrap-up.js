@@ -16,12 +16,12 @@ export default class WrapUp extends Page {
           <h3>You have completed the tutorial!</h3>
           <p>Now run it</p>
 
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               npm install
               npm start
 
               # navigate to http://localhost:8080
-          </code-mirror>
+          </monaco-editor>
         </article>
       </article>
     `;

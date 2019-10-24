@@ -31,7 +31,7 @@ export default class Layout extends Page {
           <h4>Header file</h4>
           <p>This contains the top app bar</p>
           <div class="direction">create file: <b>layout/header.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { html } from '@webformula/pax-core';
 
               export default function() {
@@ -46,14 +46,14 @@ export default class Layout extends Page {
                   </header>
                 \`;
               }
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="nav-file">
           <h4>Navigation file</h4>
           <p>This contains the side nav bar</p>
           <div class="direction">create file: <b>layout/navigation.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               import { html } from '@webformula/pax-core';
 
               export default function () {
@@ -82,53 +82,53 @@ export default class Layout extends Page {
                   </mdw-drawer>
                 \`;
               }
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="index-file">
           <h4>Index file</h4>
           <p>This contains the side nav bar</p>
           <div class="direction">create file: <b>layout/index.js</b></div>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript" content="${`
               import { html } from '@webformula/pax-core';
               import header from './header.js';
               import nav from './navigation.js';
 
               export default function ({ head, body, title }) {
                 return html\`
-                  <!-- <!doctype html> -->
-                  <!-- <html lang="en"> -->
-                    <!-- <head> -->
-                      <meta charset="UTF-8">
-                      <meta http-equiv="Cache-Control" content="no-store" />
-                      <meta name="viewport" content="width=device-width, initial-scale=1">
-                      <meta name="Description" content="Build, render and serve web-components">
+                  <!doctype html>
+                  <html lang='en'>
+                    <head>
+                      <meta charset='UTF-8'>
+                      <meta http-equiv='Cache-Control' content='no-store' />
+                      <meta name='viewport' content='width=device-width, initial-scale=1'>
+                      <meta name='Description' content='Build, render and serve web-components'>
 
                       <title>\${title}</title>
 
-                      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-                      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-                      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.css">
-                      <link rel="stylesheet" href="/styles/main.css">
+                      <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+                      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet'>
+                      <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.css'>
+                      <link rel='stylesheet' href='/styles/main.css'>
 
-                      <script src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.js"></script>
+                      <script src='https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.2-beta/dist/pax-components.js'></script>
 
                       \${head}
-                    <!-- </head> -->
+                    </head>
 
-                    <!-- <body> -->
+                    <body>
                       \${nav({ title })}
                       <mdw-page>
                         \${header({ title })}
-                        <mdw-content class="constrain-width">
+                        <mdw-content class='constrain-width'>
                           \${body}
                         </mdw-content>
                       </mdw-page>
-                    <!-- </body> -->
-                  <!-- </html> -->
+                    </body>
+                  </html>
                 \`;
               }
-          </code-mirror>
+          `}"></monaco-editor>
         </article>
 
         <a class="button" href="#/lets-build/component">Next: Lets build - 3. component</a>

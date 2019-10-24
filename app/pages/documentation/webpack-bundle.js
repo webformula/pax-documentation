@@ -28,7 +28,7 @@ export default class WebpackPage extends Page {
           <h4>Webpack config</h4>
           <p>The entry.js file will exist in you dist folder</p>
           <p>You can use the index.html file in the dist folder with the newly created webpack bundled entry.js file</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               const path = require('path');
               const webpack = require('webpack');
 
@@ -51,13 +51,13 @@ export default class WebpackPage extends Page {
                   }
                 }
               };
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <article class="sub-article" id="build-scripts">
           <h4>Build Script</h4>
           <p>PAX-core will build the files to the "build" folder, and webpack will bundle them in the "dist" folder</p>
-          <code-mirror mode="javascript">
+          <monaco-editor language="javascript">
               // build.js
               import { build } from '@webformula/pax-core';
 
@@ -78,7 +78,7 @@ export default class WebpackPage extends Page {
                 "build": "node --experimental-modules build.js && npm run package",
                 "package": "webpack --config webpack.config.js && cp build/index.html dist/"
               }
-          </code-mirror>
+          </monaco-editor>
         </article>
 
         <section>
