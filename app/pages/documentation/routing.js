@@ -36,7 +36,7 @@ export default class Routing extends Page {
           <h4>Default routes</h4>
           <p>All pages in teh page folder have a default route</p>
           <p>You can add custom routes in 2 different places. Read next sections to find out how</p>
-          <monaco-editor language="javascript">
+          <monaco-editor language="yaml">
               // Folder structure
                 app/
                   pages/

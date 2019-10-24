@@ -37,7 +37,7 @@ export default class GettingStarted extends Page {
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <monaco-editor language="javascript">
+          <monaco-editor language="yaml">
             app/
               pages/
                 hello-world.js
@@ -50,7 +50,7 @@ export default class GettingStarted extends Page {
         <article class="sub-article" id="installation">
           <h4>Installation</h4>
           <p>You can install pax-core through NPM</p>
-          <monaco-editor language="html">
+          <monaco-editor language="shell">
             <code>
               npm i @webformula/pax-core --save
             </code>
@@ -178,7 +178,7 @@ export default class GettingStarted extends Page {
         <article class="sub-article" id="lets-run-it">
           <h4>Lets run it</h4>
           <p>You no have a fully functional site!</p>
-          <monaco-editor language="html">
+          <monaco-editor language="shell">
             <code>
               node app/build.js
             </code>

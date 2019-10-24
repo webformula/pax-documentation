@@ -16,7 +16,7 @@ export default class WrapUp extends Page {
           <h3>You have completed the tutorial!</h3>
           <p>Now run it</p>
 
-          <monaco-editor language="javascript">
+          <monaco-editor language="shell">
               npm install
               npm start
 

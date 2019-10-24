@@ -28,7 +28,7 @@ export default class What extends Page {
 
         <article class="sub-article" id="structure">
           <h4>Project structure</h4>
-          <monaco-editor language="javascript">
+          <monaco-editor language="yaml">
               app/
                 layout/
                   index.js
