@@ -69,7 +69,26 @@ export default class WebpackPage extends Page {
                 routerConfig: {
                   root: 'introduction',
                   fourOFour: 'fourOFour'
-                }
+                },
+
+                // Use webpack with a service worker
+                //   make sure you specify the cahced files so it does not auto generate the full list
+                //   This will copy the app css and the images only. The single entry file will autimatiaclly be added
+                serviceWorker: {
+                  include: true,
+                  autoReload: true,
+                  cacheFiles: [
+                    'app.css',
+                    '**/*.png'
+                  ]
+                },
+
+                copyFiles: [
+                  {
+                    from: 'public/**',
+                    to: ''
+                  }
+                ]
               });
 
 
@@ -82,7 +101,7 @@ export default class WebpackPage extends Page {
         </article>
 
         <section>
-          <a class="button" href="#/documentation/web-components">Next: Web components</a>
+          <a class="button" href="#/documentation/service-worker">Next: Service worker</a>
         </section>
       </article>
     `;

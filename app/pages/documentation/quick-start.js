@@ -153,24 +153,56 @@ export default class GettingStarted extends Page {
 
               build({
                 rootFolder: 'app',
-                // folder is assumed to be in rootFolder
-                pagesFolder: 'pages',
+                pagesFolder: 'pages', // folder is assumed to be in rootFolder
                 layoutFilePath: 'app/layout.js',
                 distFolder: 'dist',
                 routeConfig: {
-                  // page class name
-                  root: 'HelloWorld'
+                  root: 'HelloWorld' // page class name
 
-                  // 404 not fount pages
+                  // 404 not found pages
                   fourOFour: 'fourOFour.js',
 
                   // custom routes
-                  // pages are routed based on folder structure by default
-                  // use this if you want to add a custom routing path
+                  //   pages are routed based on folder structure by default
+                  //   use this if you want to add a custom routing path
                   custom: {
                     "some-custom-url": 'page-subfolder(or not)/file.js'
                   }
-                }
+                },
+
+                // serice worker config
+                serviceWorker: {
+                  // include the service worker
+                  include: true, // default false
+
+                  // This will auto reload the webpage if there is a new build
+                  // If you want the user to be incontroll of when to reload then set this to false
+                  //    and register a callback with 'window.onNewServiceWorkerAvailable(() => {})';
+                  //    the passed in callback will be called when there is a new build
+                  //    then you can call 'window.serviceWorkerSkipWaiting()' to reload the page and get the new build
+                  autoReload: true, // default true
+
+                  /* CahcedFiles override
+                   *   This is not needed, the cached file list will be automatically generated
+                   *   this is for overriding
+                   *   you can use wild cards and blobs
+                  cacheFiles: [
+                    'app.css',
+                    '**/*.png'
+                  ]
+                  */
+                },
+
+                // copy files from the inside the src folder to the destination folder
+                //   These files will be included in the cached files of the service worker
+                //   you can use wild cards and blobs
+                //   example: app/public/images/one.png -> dist/images/one.png
+                copyFiles: [
+                  {
+                    from: 'public/**',
+                    to: ''
+                  }
+                ]
               });
           </monaco-editor>
         </article>

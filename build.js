@@ -8,5 +8,11 @@ build({
   routerConfig: {
     root: 'introduction',
     fourOFour: 'fourOFour'
-  }
+  },
+  copyFiles: [
+    {
+      from: 'public/**',
+      to: ''
+    }
+  ]
 });

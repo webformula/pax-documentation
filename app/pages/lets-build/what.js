@@ -49,11 +49,11 @@ export default class What extends Page {
 
               build({
                 rootFolder: 'app',
-                pagesFolder: 'pages',
+                pagesFolder: 'pages', // folder is assumed to be in rootFolder
                 layoutFilePath: 'app/layout/index.js',
                 distFolder: 'dist',
                 routeConfig: {
-                  root: 'home',
+                  root: 'home', // page class name
                   fourOFour: 'fourOFour'
                 }
               });
