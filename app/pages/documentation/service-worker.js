@@ -64,8 +64,8 @@ export default class ServiceWorker extends Page {
                 //   example: app/public/images/one.png -> dist/images/one.png
                 copyFiles: [
                   {
-                    from: 'public/**',
-                    to: ''
+                    from: 'app/public/**',
+                    to: 'dist/'
                   }
                 ]
               });
@@ -112,8 +112,8 @@ export default class ServiceWorker extends Page {
                 //   example: app/public/images/one.png -> dist/images/one.png
                 copyFiles: [
                   {
-                    from: 'public/**',
-                    to: ''
+                    from: 'app/public/**',
+                    to: 'dist/'
                   }
                 ]
               });
@@ -126,7 +126,7 @@ export default class ServiceWorker extends Page {
                 document.querySelector('#new-build-banner').display = 'block';
               });
 
-              <button onclick="window.serviceWorkerSkipWaiting()"></button>
+              <button id="new-build-banner" style="display: none;" onclick="window.serviceWorkerSkipWaiting()"></button>
           </monaco-editor>
         </article>
 

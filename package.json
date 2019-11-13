@@ -11,15 +11,18 @@
   "scripts": {
     "start": "nodemon --watch app --watch src-docs --exec \"npm run build\" & npm run serve",
     "serve": "http-server dist/ -p 8080",
-    "build": "node --experimental-modules build.js"
+    "build": "node --experimental-modules build.js && npm run package",
+    "package": "webpack --config webpack.config.js && cp build/index.html dist/"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
   "dependencies": {
-    "@webformula/pax-core": "github:webformula/pax-core#v0.4.13-beta"
+    "@webformula/pax-core": "github:webformula/pax-core#v0.4.15-beta"
   },
   "devDependencies": {
     "http-server": "^0.11.1",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   }
 }

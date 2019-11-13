@@ -199,8 +199,8 @@ export default class GettingStarted extends Page {
                 //   example: app/public/images/one.png -> dist/images/one.png
                 copyFiles: [
                   {
-                    from: 'public/**',
-                    to: ''
+                    from: 'app/public/**',
+                    to: 'dist/'
                   }
                 ]
               });

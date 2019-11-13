@@ -4,15 +4,16 @@ build({
   rootFolder: 'app',
   pagesFolder: 'pages',
   layoutFilePath: 'app/layout/index.js',
-  distFolder: 'dist',
+  distFolder: 'build',
+  cacheBust: true,
   routerConfig: {
     root: 'introduction',
     fourOFour: 'fourOFour'
   },
   copyFiles: [
     {
-      from: 'public/**',
-      to: ''
+      from: 'app/public/**',
+      to: 'dist/'
     }
   ]
 });

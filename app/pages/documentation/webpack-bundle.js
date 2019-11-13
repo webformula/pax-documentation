@@ -85,8 +85,8 @@ export default class WebpackPage extends Page {
 
                 copyFiles: [
                   {
-                    from: 'public/**',
-                    to: ''
+                    from: 'app/public/**',
+                    to: 'dist/'
                   }
                 ]
               });
