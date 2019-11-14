@@ -5,16 +5,6 @@ export default class Component extends Page {
     return 'Component';
   }
 
-  connectedCallback() {
-    const percentProgressBar = document.querySelector('#percent-progress-bar');
-    let percent = 0;
-    const interval = setInterval(() => {
-      percent += 0.1;
-      percentProgressBar.setAttribute('percent', percent);
-      if (percent === 100) clearInterval(interval);
-    }, 1);
-  }
-
   template() {
     return html`
       <div class="disclaimer-container">

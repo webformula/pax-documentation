@@ -5,10 +5,6 @@ export default class Examples extends Page {
     return 'Examples';
   }
 
-  open(url) {
-    window.open(url, '_new');
-  }
-
   template() {
     return html`
       <article class="page-article">
@@ -17,18 +13,25 @@ export default class Examples extends Page {
 
         <h6 style="margin-top: 56px;">Example links</h6>
         <mdw-list class="mdw-two-line">
-          <mdw-list-item onclick="activePage.open('https://github.com/webformula/pax-example-common')">
-            <mdw-icon mdw-src="GitHub-Mark-32px.png"></mdw-icon>
+          <mdw-list-item disabled>
             <div class="mdw-list-item__text">
               <div class="mdw-list-item__primary-text">
                 Common App
               </div>
               <div class="mdw-list-item__secondary-text">
-                Common app with a login page, JWT token auth using a refresh strategy, and webpack bundling
+                Login page, JWT token auth using a refresh strategy, and webpack bundling
               </div>
             </div>
-            <div class="mdw-ripple mdw-list-item-ripple"></div>
-            <mdw-icon class="mdw-list-item__meta">launch</mdw-icon>
+
+            <mdw-button href="https://github.com/webformula/pax-example-common" target="_blank" class="mdw-list-item__meta">
+              <mdw-icon mdw-src="GitHub-Mark-32px.png" style="padding-right: 4px;"></mdw-icon>
+              GitHub
+            </mdw-button>
+
+            <mdw-button href="http://examples.common.webformula.io" target="_blank" class="mdw-list-item__meta">
+              <mdw-icon class="mdw-list-item__meta">launch</mdw-icon>
+              example
+            </mdw-button>
           </mdw-list-item>
         </mdw-list>
       </article>
