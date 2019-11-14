@@ -110,13 +110,13 @@ export default class BuildingPages extends Page {
                   return html\`
                     <h2>Interactive</h2>
                     <div>
-                      <select onchange="$homePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
+                      <select onchange="activePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
                         <option value="" disabled>State...</option>
                         \${this.states.map(function (s) { return html\`
                           <option value="\${s.name}">\${s.name}</option>
                         \`;}).join('\n')}
                       </select>
-                      <select onchange="$homePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
+                      <select onchange="activePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
                         <option value="" disabled>City...</option>
                         \${this.cities.map(function (c) { return html\`
                           <option value="\${c.name}">\${c.name}</option>

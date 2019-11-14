@@ -89,8 +89,7 @@ export default class GettingStarted extends Page {
                 }
 
                 /* onclick() method is made available on the element
-                 * you can access the pages methods by using '$HelloWorld' in the html
-                 * the class alias ($HelloWorld) is gerenated based on the class name
+                 * you can access the pages methods by using 'activePage' in the html
                  */
                 onclick() {
                   alert('clicked');
@@ -108,7 +107,7 @@ export default class GettingStarted extends Page {
                 template() {
                   return html\`
                     <h2>Hello World</h2>
-                    <button onclick="$HelloWorld.onclick()">click me</button>
+                    <button onclick="activePage.onclick()">click me</button>
                   \`;
                 }
               }

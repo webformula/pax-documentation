@@ -43,7 +43,7 @@ export default class SimplePage extends Page {
                   return html\`
                     <h2>Hello World</h2>
                     <!-- this is the component we built in the previous step -->
-                    <simple-button onclick="$Home.onclick()">click me</simple-button>
+                    <simple-button onclick="activePage.onclick()">click me</simple-button>
                   \`;
                 }
               };
