@@ -155,6 +155,14 @@ export default class GettingStarted extends Page {
                 pagesFolder: 'pages', // folder is assumed to be in rootFolder
                 layoutFilePath: 'app/layout.js',
                 distFolder: 'dist',
+
+                // optional
+                // This will concatenate all the css files in the rootfolder into the distFolder
+                css: {
+                  concat: true, // default false,
+                  filename: 'file.css' // defualt app.css
+                },
+
                 routeConfig: {
                   root: 'HelloWorld' // page class name
 
