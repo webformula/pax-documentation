@@ -16,7 +16,7 @@ export default class Browsers extends Page {
 
       <section>
         <h2>Web components</h2>
-        <p>PAX-CORE uses <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_new">web components</a>. Web componets are currently supported by most of the major browsers. If you need to exapnd your browser support there is also a polyfill that exapnds support to IE11.</p>
+        <p>PAX-CORE uses <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank">web components</a>. Web componets are currently supported by most of the major browsers. If you need to exapnd your browser support there is also a polyfill that exapnds support to IE11.</p>
       </section>
 
       <div mdw-row mdw-wrap>

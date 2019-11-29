@@ -148,69 +148,82 @@ export default class GettingStarted extends Page {
 
           <p class="direction">Create build file <b>build.js</b></p>
           <monaco-editor language="javascript">
-              import { build } from '@webformula/pax-core';
+            import { build } from '@webformula/pax-core';
 
-              build({
-                rootFolder: 'app',
-                pagesFolder: 'pages', // folder is assumed to be in rootFolder
-                layoutFilePath: 'app/layout.js',
-                distFolder: 'dist',
+            build({
+              // root app folder
+              rootFolder: 'app',
 
-                // optional
-                // This will concatenate all the css files in the rootfolder into the distFolder
-                css: {
-                  concat: true, // default false,
-                  filename: 'file.css' // defualt app.css
-                },
+              // pages folder path relative to root folder
+              pagesFolder: 'pages',
 
-                routeConfig: {
-                  root: 'HelloWorld' // page class name
+              // layout file path relative to root folder
+              layoutFilePath: 'layout.js',
 
-                  // 404 not found pages
-                  fourOFour: 'fourOFour.js',
+              // destination for build files
+              distFolder: 'dist',
 
-                  // custom routes
-                  //   pages are routed based on folder structure by default
-                  //   use this if you want to add a custom routing path
-                  custom: {
-                    "some-custom-url": 'page-subfolder(or not)/file.js'
-                  }
-                },
+              // optional
+              // This will concatenate all the css files in the rootfolder into the distFolder
+              css: {
+                concat: true, // default false,
+                filename: 'file.css' // defualt app.css
+              },
 
-                // serice worker config
-                serviceWorker: {
-                  // include the service worker
-                  include: true, // default false
 
-                  // This will auto reload the webpage if there is a new build
-                  // If you want the user to be incontroll of when to reload then set this to false
-                  //    and register a callback with 'window.onNewServiceWorkerAvailable(() => {})';
-                  //    the passed in callback will be called when there is a new build
-                  //    then you can call 'window.serviceWorkerSkipWaiting()' to reload the page and get the new build
-                  autoReload: true, // default true
+              // configure routes
+              //   routes can also be configures directly in the page classes
+              routeConfig: {
+                root: 'HelloWorld' // page class name
 
-                  /* CahcedFiles override
-                   *   This is not needed, the cached file list will be automatically generated
-                   *   this is for overriding
-                   *   you can use wild cards and blobs
-                  cacheFiles: [
-                    'app.css',
-                    '**/*.png'
-                  ]
-                  */
-                },
+                // 404 not found pages
+                fourOFour: 'fourOFour.js',
 
-                // copy files from the inside the src folder to the destination folder
-                //   These files will be included in the cached files of the service worker
-                //   you can use wild cards and blobs
-                //   example: app/public/images/one.png -> dist/images/one.png
-                copyFiles: [
-                  {
-                    from: 'app/public/**',
-                    to: 'dist/'
-                  }
+                // custom routes
+                //   pages are routed based on folder structure by default
+                //   use this if you want to add a custom routing path
+                custom: {
+                  "some-custom-url": 'page-subfolder(or not)/file.js'
+                }
+              },
+
+              // service worker config
+              serviceWorker: {
+                // include the service worker
+                include: true, // default false
+
+                // This will auto reload the webpage if there is a new build
+                // If you want the user to be incontroll of when to reload then set this to false
+                //    and register a callback with 'window.onNewServiceWorkerAvailable(() => {})';
+                //    the passed in callback will be called when there is a new build
+                //    then you can call 'window.serviceWorkerSkipWaiting()' to reload the page and get the new build
+                autoReload: true, // default true
+
+                /* CahcedFiles override
+                 *   This is not needed, the cached file list will be automatically generated
+                 *   this is for overriding
+                 *   you can use wild cards and blobs
+                cacheFiles: [
+                  'app.css',
+                  '**/*.png'
                 ]
-              });
+                */
+              },
+
+              // copy files from the inside the src folder to the destination folder
+              //   These files will be included in the cached files of the service worker
+              //   you can use wild cards and blobs
+              //   example: app/public/images/one.png = dist/images/one.png
+              //
+              // you can use wild cards
+              //    copy all javascript files: app/public/**/*.js
+              copyFiles: [
+                {
+                  from: 'app/public/**',
+                  to: 'dist/'
+                }
+              ]
+            });
           </monaco-editor>
         </article>
 
@@ -222,7 +235,7 @@ export default class GettingStarted extends Page {
               node app/build.js
             </code>
           </monaco-editor>
-          <div class="direction">Navigate to <a href="http://localhost:3001/hello-world">http://localhost:3001/hello-world</a></div>
+          <div class="direction">Navigate to <a href="http://localhost:3001/hello-world" target="_blank">http://localhost:3001/hello-world</a></div>
         </article>
 
         <section>

@@ -14,6 +14,8 @@ export default function () {
           <nav>
             <span class="title">Welcome</span>
             <a href="#/introduction">Introduction</a>
+            <a href="https://github.com/webformula/pax-core" target="_blank">GitHub: PAX-core</a>
+            <a href="https://github.com/webformula/pax-documentation" target="_blank">GitHub: documentation</a>
 
             <!-- <expander-container>
               <expander-header>
@@ -36,6 +38,7 @@ export default function () {
               <a href="#/documentation/pages">Building Pages</a>
               <a href="#/documentation/web-components">Web componenets</a>
               <a href="#/documentation/routing">Routing</a>
+              <a href="#/documentation/building-app">bundling app</a>
               <a href="#/documentation/webpack-bundle">Webpack bundling</a>
               <a href="#/documentation/service-worker">Service worker (offline)</a>
             </section>

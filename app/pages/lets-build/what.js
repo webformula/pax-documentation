@@ -20,7 +20,7 @@ export default class What extends Page {
           <ul>
             <li><anchor-link selector="#structure" offset="56px">Project structure</anchor-link></li>
             <li><anchor-link selector="#build" offset="56px">Build script</anchor-link></li>
-            <li><a href="https://github.com/webformula/pax-documentation-example">Github repo<a></li>
+            <li><a href="https://github.com/webformula/pax-documentation-example" target="_blank">Github repo<a></li>
             <li><a href="#/lets-build/layout">Next: Lets build - 2. Layout</a></li>
           </ul>
         </article>
@@ -49,8 +49,10 @@ export default class What extends Page {
 
               build({
                 rootFolder: 'app',
-                pagesFolder: 'pages', // folder is assumed to be in rootFolder
-                layoutFilePath: 'app/layout/index.js',
+                // pages folder path relative to root folder
+                pagesFolder: 'pages',
+                // layout file path relative to root folder
+                layoutFilePath: 'layout/index.js',
                 distFolder: 'dist',
                 routeConfig: {
                   root: 'home', // page class name

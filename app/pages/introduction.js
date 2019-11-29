@@ -14,7 +14,7 @@ export default class Introduction extends Page {
       <article>
         <article class="into-article">
           <h3>Introduction</h3>
-          <p>This project promotes the usage of web components. If you are not familiar with the web-component specs then I would suggest reading them first. <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Link</a></p>
+          <p>This project promotes the usage of web components. If you are not familiar with the web-component specs then I would suggest reading them first. <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank">Link</a></p>
 
           <h5>What</h5>
           <p><b>PAX</b> is a set of tools to allow web pages to be built simply, nativly and without stacks of dependencies. The tools add some great features including server-side rendering, dynamic client side rendering, performance (using native browser features), optimizations that reduces load times, managed client side caching, pwa compatability, and more.</p>

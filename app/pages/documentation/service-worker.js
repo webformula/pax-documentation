@@ -21,7 +21,7 @@ export default class ServiceWorker extends Page {
         <ul>
           <li><anchor-link selector="#auto-reload" offset="56px">Auto reload</anchor-link></li>
           <li><anchor-link selector="#manual-reload" offset="56px">Manual reload</anchor-link></li>
-          <li><a href="https://github.com/webformula/pax-example-webpack-bundle" target="_new">Github: Example app</a></li>
+          <li><a href="https://github.com/webformula/pax-example-webpack-bundle" target="_blank">Github: Example app</a></li>
         </ul>
 
         <article class="sub-article" id="auto-reload">

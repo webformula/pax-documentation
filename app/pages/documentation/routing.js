@@ -148,7 +148,7 @@ export default class Routing extends Page {
         </article>
 
         <section>
-          <a class="button" href="#/documentation/web-components">Next: Web components</a>
+          <a class="button" href="#/documentation/building-app">Next: Building app</a>
         </section>
       </article>
     `;

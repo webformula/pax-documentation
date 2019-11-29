@@ -21,7 +21,7 @@ export default class WebpackPage extends Page {
         <ul>
           <li><anchor-link selector="#webpack" offset="56px">Build config</anchor-link></li>
           <li><anchor-link selector="#build-scripts" offset="56px">Build scripts</anchor-link></li>
-          <li><a href="https://github.com/webformula/pax-example-webpack-bundle" target="_new">Github: Example app</a></li>
+          <li><a href="https://github.com/webformula/pax-example-webpack-bundle" target="_blank">Github: Example app</a></li>
         </ul>
 
         <article class="sub-article" id="webpack">

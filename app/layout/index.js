@@ -24,11 +24,11 @@ export default function ({ head, body, title }) {
         <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
         <link rel="manifest" href="manifest.json">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.17-beta/dist/pax-components.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.18-beta/dist/pax-components.css">
         <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/page.css">
 
-        <script type="module" src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.17-beta/dist/pax-components.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/gh/webformula/pax-components@0.5.18-beta/dist/pax-components.js"></script>
         <script src="vs/loader.js"></script>
 
         <script>
