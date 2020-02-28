@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class GettingStarted extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class GettingStarted extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -62,7 +62,7 @@ export default class GettingStarted extends Page {
 
           <p class="direction">Create page file <b>app/pages/hello-world.js</b></p>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class HelloWorld extends Page {
                 constructor() {

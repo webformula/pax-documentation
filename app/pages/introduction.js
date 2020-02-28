@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class Introduction extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class Introduction extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -35,7 +35,7 @@ export default class Introduction extends Page {
             <div class="flex column-article">
               <h6>Simplify</h6>
               <p>
-                Simplify code and use js, html, css at its core
+                Simplify code and use js, css at its core
               </p>
             </div>
 

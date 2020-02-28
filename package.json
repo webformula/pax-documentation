@@ -9,17 +9,19 @@
     "url": "https://github.com/webformula/pax-documentation.git"
   },
   "scripts": {
-    "start": "nodemon --watch app --watch src-docs --exec \"npm run build\" & npm run serve",
+    "start": "nodemon --ignore app/entry.js --watch app --exec \"npm run build:docs-entry && npm run package:dev\" & npm run serve",
     "serve": "http-server dist/ -p 8080",
-    "build": "node --experimental-modules build.js && npm run package",
-    "package": "webpack --config webpack.config.js && cp build/index.html dist/"
+    "package:dev": "webpack --config webpack.dev.config.cjs",
+    "package:prod": "rm -rf dist && npm run build:docs-entry && webpack --config webpack.prod.config.cjs",
+    "build:docs-entry": "node --experimental-modules buildDocsEntry.mjs"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
   "dependencies": {
-    "@webformula/pax-core": "github:webformula/pax-core#v0.6.0-beta"
+    "@webformula/pax-core": "github:webformula/pax-core#version-7-refactor"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
     "http-server": "^0.11.1",
     "nodemon": "^1.19.2",
     "webpack": "^4.41.2",

@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class BuildingPages extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class BuildingPages extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -30,7 +30,7 @@ export default class BuildingPages extends Page {
           <h4>Basic page</h4>
           <monaco-editor language="javascript">
               // basic page that uses server side rendering
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class BasicPage extends Page {
                 constructor() {
@@ -65,7 +65,7 @@ export default class BuildingPages extends Page {
           <h4>Interactive page</h4>
           <p>Rerender the page when data is updated</p>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
               import { getStates } from '../services/states';
 
               export default class InteractivePage extends Page {

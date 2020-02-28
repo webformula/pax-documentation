@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "app/"
+  ],
+  "ext": "js, css, html",
+  "ignore": [
+    "app/entry.js"
+  ]
+}

@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class Routing extends Page {
   get title() {
@@ -12,7 +12,7 @@ export default class Routing extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -91,7 +91,7 @@ export default class Routing extends Page {
           <h4>Page config</h4>
           <p>You can configure custom routes in the page itself</p>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class Home extends Page {
                 constructor() {
