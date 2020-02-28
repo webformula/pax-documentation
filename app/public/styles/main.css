@@ -480,3 +480,7 @@ expander-header .expander-label.active {
   color: #b3b3b3;
   font-weight: 400;
 }
+
+.constrain-width {
+  max-width: 900px;
+}

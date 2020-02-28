@@ -21,9 +21,10 @@ export default class GettingStarted extends Page {
         <ul>
           <li><anchor-link selector="#structure" offset="56">Project structure</anchor-link></li>
           <li><anchor-link selector="#installation" offset="56">Installation</anchor-link></li>
+          <li><anchor-link selector="#webpack" offset="56">webpack</anchor-link></li>
+          <li><anchor-link selector="#package-scripts" offset="56">Package.json scrips</anchor-link></li>
+          <li><anchor-link selector="#entry" offset="56">entry</anchor-link></li>
           <li><anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link></li>
-          <li><anchor-link selector="#create-layout" offset="56">Create layout</anchor-link></li>
-          <li><anchor-link selector="#create-build-script" offset="56">Create build script</anchor-link></li>
           <li><anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link></li>
           <li><a href="/documentation/pages">Next: Building pages</a></li>
         </ul>
@@ -40,9 +41,10 @@ export default class GettingStarted extends Page {
           <monaco-editor language="yaml">
             app/
               pages/
-                hello-world.js
-              layout.js
-            build.js
+                helloWorld.js
+              entry.js
+              index.html
+            webpack.config.cjs
             package.json
           </monaco-editor>
         </article>
@@ -53,6 +55,74 @@ export default class GettingStarted extends Page {
           <monaco-editor language="shell">
             <code>
               npm i @webformula/pax-core --save
+              npm i http-serve --save-dev
+              npm i nodemon --save-dev
+              npm i webpack --save-dev
+              npm i webpack-cli --save-dev
+            </code>
+          </monaco-editor>
+        </article>
+
+        <article class="sub-article" id="webpack">
+          <h4>Webpack</h4>
+          <p class="direction">Create webpack config <b>app/webpack.config.cjs</b></p>
+          <monaco-editor language="javascript">
+            <code>
+              const path = require('path');
+              const cwd = process.cwd();
+
+              module.exports = {
+                entry: {
+                  'entry.js': './app/entry.js'
+                },
+
+                output: {
+                  filename: '[name]',
+                  path: path.resolve(__dirname, 'dist'),
+                },
+
+                resolve: {
+                  alias: {
+                    '/@webformula/pax-core': path.resolve(cwd, 'dist/@webformula/pax-core')
+                  }
+                },
+
+                mode: 'development',
+                devtool: 'inline-source-map'
+              };
+            </code>
+          </monaco-editor>
+        </article>
+
+        <article class="sub-article" id="package-scripts">
+          <h4>Package.json scrips</h4>
+          
+          <monaco-editor language="json">
+            <code>
+              {
+                "scripts": {
+                  "start": "nodemon --watch app --exec \\"npm run package\\" & npm run serve",
+                  "serve": "http-server dist/ -p 8080",
+                  "package": "webpack --config webpack.config.cjs"
+                }
+              }
+            </code>
+          </monaco-editor>
+        </article>
+
+        <article class="sub-article" id="entry">
+          <h4>entry.js</h4>
+          
+          <p>Entry point to out app. Load pages, components, and modules here</p>
+          <monaco-editor language="javascript">
+            <code>
+              import { router } from '@webformula/pax-core';
+              import HelloWorld from './pages/helloWorld.js';
+
+              router.addPageClass(HelloWorld, 'helloWorld');
+              router.setRoot('HelloWorld');
+              router.init();
+              window.router = router;
             </code>
           </monaco-editor>
         </article>
@@ -60,171 +130,77 @@ export default class GettingStarted extends Page {
         <article class="sub-article" id="create-our-fist-page">
           <h4>Create our fist page</h4>
 
-          <p class="direction">Create page file <b>app/pages/hello-world.js</b></p>
+          <p class="direction">Create page file <b>app/pages/helloWorld.js</b></p>
           <monaco-editor language="javascript">
-              import { Page } from '@webformula/pax-core';
+            import { Page } from '@webformula/pax-core';
 
-              export default class HelloWorld extends Page {
-                constructor() {
-                  super();
+            export default class HelloWorld extends Page {
+              constructor() {
+                super();
 
-                  // interact with route parameters ('route/:parameter')
-                  this.routerParameters = router.getUrlParameters();
-                  this.routeParamterIs = router.getUrlParameter('id');
-                }
-
-                // page title. This returns from the page.build() method
-                get title() {
-                  return 'Hello World';
-                }
-
-                // add page routes
-                // The page will have a default route of its folder location. ('HelloWorld')
-                static get routes() {
-                  return [
-                    // route with parameter
-                    'home/:id',
-                    'two'
-                  ]
-                }
-
-                /* onclick() method is made available on the element
-                 * you can access the pages methods by using 'activePage' in the html
-                 */
-                onclick() {
-                  alert('clicked');
-                }
-
-                // optional css
-                styles() {
-                  return \`
-                    body {
-                      margin: 0;
-                    }
-                  \`;
-                }
-
-                template() {
-                  return html\`
-                    <h2>Hello World</h2>
-                    <button onclick="activePage.onclick()">click me</button>
-                  \`;
-                }
+                // interact with route parameters ('route/:parameter')
+                this.routerParameters = router.getUrlParameters();
+                this.routeParamterIs = router.getUrlParameter('id');
               }
+
+              // page title. This returns from the page.build() method
+              get title() {
+                return 'Hello World';
+              }
+
+              // add page routes
+              // The page will have a default route of its folder location. ('HelloWorld')
+              static get routes() {
+                return [
+                  // route with parameter
+                  'home/:id',
+                  'two'
+                ]
+              }
+
+              /* onclick() method is made available on the element
+                * you can access the pages methods by using 'activePage' in the html
+                */
+              onclick() {
+                alert('clicked');
+              }
+
+              // optional css
+              styles() {
+                return \`
+                  body {
+                    margin: 0;
+                  }
+                \`;
+              }
+
+              template() {
+                return \`
+                  <h2>Hello World</h2>
+                  <button onclick="activePage.onclick()">click me</button>
+                \`;
+              }
+            }
           </monaco-editor>
         </article>
 
         <article class="sub-article" id="create-layout">
-          <h4>Create layout</h4>
-          <p>We are simply using a function with a template string to produce a page layout</p>
-
-          <p class="direction">Create layout file <b>app/layout.js</b></p>
-          <monaco-editor language="javascript" content="${`
-              import { html } from '@webformula/pax-core';
-
-              export default function ({ head, body, title }) {
-                return \`
-                  <!doctype html>
-                  <html lang='en'>
-                    <head>
-                      <meta http-equiv='Cache-Control' content='no-store' />
-                      <title>\${title}</title>
-                      <!-- web-components-node styles and scripts. This includes components -->
-                      <link rel='stylesheet' href='pax.css'>
-                      <script src='pax.js'></script>
-                      \${head}
-                    </head>
-                    <body>
-                      \${body}
-                    </body>
-                  </html>
-                \`;
-              }
+          <h4>Create index html</h4>
+          <p class="direction">Create index html <b>app/index.html</b></p>
+          <monaco-editor language="html" content="${`
+            <!doctype html>
+            <html lang='en'>
+              <head>
+                <meta http-equiv='Cache-Control' content='no-store' />
+                <title></title>
+                <script src=\"entry.js\" type=\"module\"></script>
+              </head>
+              <body>
+                <!-- this is needed for the router -->
+                <page-container></page-container>
+              </body>
+            </html>
           `}"></monaco-editor>
-        </article>
-
-        <article class="sub-article" id="create-build-script">
-          <h4>Create build script</h4>
-
-          <p class="direction">Create build file <b>build.js</b></p>
-          <monaco-editor language="javascript">
-            import { build } from '@webformula/pax-core';
-
-            build({
-              // root app folder
-              rootFolder: 'app',
-
-              // pages folder path relative to root folder
-              pagesFolder: 'pages',
-
-              // layout file path relative to root folder
-              layoutFilePath: 'layout.js',
-
-              // destination for build files
-              distFolder: 'dist',
-
-              // optional
-              // This will concatenate all the css files in the rootfolder into the distFolder
-              css: {
-                concat: true, // default false,
-                filename: 'file.css' // defualt app.css
-              },
-
-
-              // configure routes
-              //   routes can also be configures directly in the page classes
-              routeConfig: {
-                root: 'HelloWorld' // page class name
-
-                // 404 not found pages
-                fourOFour: 'fourOFour.js',
-
-                // custom routes
-                //   pages are routed based on folder structure by default
-                //   use this if you want to add a custom routing path
-                custom: {
-                  "some-custom-url": 'page-subfolder(or not)/file.js'
-                }
-              },
-
-              // service worker config
-              serviceWorker: {
-                // include the service worker
-                include: true, // default false
-
-                // This will auto reload the webpage if there is a new build
-                // If you want the user to be incontroll of when to reload then set this to false
-                //    and register a callback with 'window.onNewServiceWorkerAvailable(() => {})';
-                //    the passed in callback will be called when there is a new build
-                //    then you can call 'window.serviceWorkerSkipWaiting()' to reload the page and get the new build
-                autoReload: true, // default true
-
-                /* CahcedFiles override
-                 *   This is not needed, the cached file list will be automatically generated
-                 *   this is for overriding
-                 *   you can use wild cards and blobs
-                cacheFiles: [
-                  'app.css',
-                  '**/*.png'
-                ]
-                */
-              },
-
-              // copy files from the inside the src folder to the destination folder
-              //   These files will be included in the cached files of the service worker
-              //   you can use wild cards and blobs
-              //   example: app/public/images/one.png = dist/images/one.png
-              //
-              // you can use wild cards
-              //    copy all javascript files: app/public/**/*.js
-              copyFiles: [
-                {
-                  from: 'app/public/**',
-                  to: 'dist/'
-                }
-              ]
-            });
-          </monaco-editor>
         </article>
 
         <article class="sub-article" id="lets-run-it">
@@ -232,10 +208,10 @@ export default class GettingStarted extends Page {
           <p>You no have a fully functional site!</p>
           <monaco-editor language="shell">
             <code>
-              node app/build.js
+              node start
             </code>
           </monaco-editor>
-          <div class="direction">Navigate to <a href="http://localhost:3001/hello-world" target="_blank">http://localhost:3001/hello-world</a></div>
+          <div class="direction">Navigate to <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></div>
         </article>
 
         <section>

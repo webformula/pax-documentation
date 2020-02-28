@@ -6,8 +6,8 @@ import './pages/lets-build/component.js';
 
 import { router } from '@webformula/pax-core';
 import Browsers from './pages/documentation/browsers.js';
-import Buildingapp from './pages/documentation/building-app.js';
-import BuildingPages from './pages/documentation/pages.js';
+import Buildingapp from './pages/documentation/building-entry.js';
+import BuildingPages from './pages/documentation/building-pages.js';
 import GettingStarted from './pages/documentation/quick-start.js';
 import Routing from './pages/documentation/routing.js';
 import ServiceWorker from './pages/documentation/service-worker.js';
@@ -23,8 +23,8 @@ import What from './pages/lets-build/what.js';
 import WrapUp from './pages/lets-build/wrap-up.js';
 
 router.addPageClass(Browsers, 'documentation/browsers');
-router.addPageClass(Buildingapp, 'documentation/building-app');
-router.addPageClass(BuildingPages, 'documentation/');
+router.addPageClass(Buildingapp, 'documentation/building-entry');
+router.addPageClass(BuildingPages, 'documentation/building-pages');
 router.addPageClass(GettingStarted, 'documentation/quick-start');
 router.addPageClass(Routing, 'documentation/routing');
 router.addPageClass(ServiceWorker, 'documentation/service-worker');

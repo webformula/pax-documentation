@@ -15,7 +15,7 @@ export default class BuildingPages extends Page {
         <article class="into-article">
           <h2>Building pages</h2>
           <p>
-          Below are a list of examples showing you how to build pages witha range of features, includign dynamic html rendering.
+            Below are a list of examples showing how to build pages witha range of features, includign dynamic html rendering.
           </p>
         </article>
 
@@ -29,35 +29,33 @@ export default class BuildingPages extends Page {
         <article class="sub-article" id="basic-page">
           <h4>Basic page</h4>
           <monaco-editor language="javascript">
-              // basic page that uses server side rendering
-              import { Page } from '@webformula/pax-core';
+            // basic page that uses server side rendering
+            import { Page } from '@webformula/pax-core';
 
-              export default class BasicPage extends Page {
-                constructor() {
-                  super();
-                  this.label = 'Basic Page';
-                }
+            export default class BasicPage extends Page {
+              constructor() {
+                super();
+                this.label = 'Basic Page';
+              }
 
-                get title() {
-                  return 'Basic page';
-                }
+              get title() {
+                return 'Basic page';
+              }
 
-                styles() {
-                  return \`
-                    customclass: {
+              styles() {
+                return \`
+                  .customclass { }
+                \`;
+              }
 
-                    }
-                  \`;
-                }
-
-                template() {
-                  return html\`
-                    <div id="content">
-                      <h2>\${this.label}</h2>
-                    </div>
-                  \`;
-                }
-              };
+              template() {
+                return \`
+                  <div id="content">
+                    <h2>\${this.label}</h2>
+                  </div>
+                \`;
+              }
+            };
           </monaco-editor>
         </article>
 
@@ -107,18 +105,18 @@ export default class BuildingPages extends Page {
                 }
 
                 template() {
-                  return html\`
+                  return \`
                     <h2>Interactive</h2>
                     <div>
                       <select onchange="activePage.stateSelectChange(this.value)" mdw-value="/${this.selectedState}">
                         <option value="" disabled>State...</option>
-                        \${this.states.map(function (s) { return html\`
+                        \${this.states.map(function (s) { return \`
                           <option value="\${s.name}">\${s.name}</option>
                         \`;}).join('\n')}
                       </select>
                       <select onchange="activePage.citySelectChange(this.value)" mdw-value="/${this.selectedCity}">
                         <option value="" disabled>City...</option>
-                        \${this.cities.map(function (c) { return html\`
+                        \${this.cities.map(function (c) { return \`
                           <option value="\${c.name}">\${c.name}</option>
                         \`;}).join('\n')}
                       </select>

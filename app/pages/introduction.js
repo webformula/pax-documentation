@@ -17,10 +17,10 @@ export default class Introduction extends Page {
           <p>This project promotes the usage of web components. If you are not familiar with the web-component specs then I would suggest reading them first. <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank">Link</a></p>
 
           <h5>What</h5>
-          <p><b>PAX</b> is a set of tools to allow web pages to be built simply, nativly and without stacks of dependencies. The tools add some great features including server-side rendering, dynamic client side rendering, performance (using native browser features), optimizations that reduces load times, managed client side caching, pwa compatability, and more.</p>
+          <p><b>PAX</b> is a set of tools to allow web pages to be built simply, nativly and without stacks of dependencies. The tools add some great features including dynamic client side rendering, page routing and mangement, performance (using native browser features), webpack and rollup compatability, pwa compatability, and more.</p>
 
           <h5>Why</h5>
-          <p>Browsers, javascript, css, and html are evolving in a uniform and predictable pace. Many features that are provided by frameworks(react, angular, vue, jquery) are now available in native forms in the browser. It is time to start looking at building web sites and applications the way we used to, nativly and with out loads of dependencies. With web-components spec becoming V1 we now have one of the last major features that frameworks provide in a native form (custom html with code associated to it). In short lets learn / return to javascript, css, and html at its core</p>
+          <p>Browsers, javascript, css, and html are evolving in a uniform and predictable pace. Many features that are provided by frameworks(react, angular, vue, ...) are now available in native forms in the browser. It is time to start building web sites and applications the way we used to, nativly and with out loads of dependencies. With web-components spec becoming V1 we now have one of the last major features that frameworks provide in a native form (custom html with code associated to it). In short lets learn/return to javascript, css, and html at its core</p>
 
           <h5 style="padding-top: 24px;">Goals</h5>
           <img src="images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
