@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class WebComponents extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class WebComponents extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -75,13 +75,27 @@ export default class WebComponents extends Page {
                   // default data state
                   this.selected = null;
                   this.list = this.getAttribute('list') || '';
+                  this.this.bound_onChange = this.onchange.bind(this);
+
+                  this.cloneTemplate();
                 }
 
                 connectedCallback() {
-                  this.render(); // This is provided by HTMLElementExtended
-                  this.shadowRoot.querySelector('select').addEventListener('change', event => {
-                    this.selected = event.target.value;
-                  });
+                  super.connectedCallback();
+                }
+
+                // automatically called after render
+                addEvents() {
+                  this.shadowRoot.querySelector('select').addEventListener('change', this.bound_onChange);
+                }
+
+                // automatically called before render and on component disconnect
+                removeEvents() {
+                  this.shadowRoot.querySelector('select').removeEventListener('change', this.bound_onChange);
+                }
+
+                onChange(event) {
+                  this.selected = event.target.value;
                 }
 
                 static get observedAttributes() {
@@ -105,6 +119,15 @@ export default class WebComponents extends Page {
                         <option value="\${i}" \${this.selected === i ? 'selected' : ''}>\${i}</option>
                       \`;}).join('\\n')}
                     </select>
+                  \`;
+                }
+
+                // add styles to webcomponent. These styles are local to the shadowRoot
+                styles() {
+                  return \`
+                    :host {
+
+                    }
                   \`;
                 }
               });

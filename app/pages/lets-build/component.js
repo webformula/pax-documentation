@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class Component extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class Component extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -35,7 +35,7 @@ export default class Component extends Page {
                * HTML
                * <basic-link link="1234">label</basic-link>
                */
-               import { HTMLElementExtended, html } from '@webformula/pax-core';
+               import { HTMLElementExtended } from '@webformula/pax-core';
 
                customElements.define('simple-button', class extends HTMLElementExtended {
                  constructor() {

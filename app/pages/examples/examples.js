@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class Examples extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class Examples extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <article class="page-article">
         <h1 class="article-title">Examples</h1>
         <p>A list of examples to show you how to build a fully functional app</p>

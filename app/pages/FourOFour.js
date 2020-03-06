@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class FourOFour extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class FourOFour extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <h2>Page Not Found</h2>
       <p>Sorry, but the page you were trying to view does not exist.</p>
     `;

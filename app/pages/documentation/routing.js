@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class Routing extends Page {
   get title() {
@@ -12,7 +12,7 @@ export default class Routing extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -37,51 +37,41 @@ export default class Routing extends Page {
           <p>All pages in teh page folder have a default route</p>
           <p>You can add custom routes in 2 different places. Read next sections to find out how</p>
           <monaco-editor language="yaml">
-              // Folder structure
-                app/
-                  pages/
-                    home.js
-                    subfolder/
-                      one.js
-                      two.js
-                  layout.js
-                build.js
-                package.json
+            // Folder structure
+              app/
+                pages/
+                  home.js
+                  subfolder/
+                    one.js
+                    two.js
+                entry.js
+                index.html
+              package.json
 
 
-              // Routes based on pages in folder structure above
-              // These routes are added by default
-                home: www.site.com/#/home
-                subfolder/one: www.site.com/#/subfolder/one
-                subfolder/two: www.site.com/#/subfolder/two
+            // Routes based on pages in folder structure above
+            // These routes are added by default
+              home: www.site.com/#/home
+              subfolder/one: www.site.com/#/subfolder/one
+              subfolder/two: www.site.com/#/subfolder/two
           </monaco-editor>
         </article>
 
         <article class="sub-article" id="build-config">
           <h4>Build config</h4>
-          <p>You can configure all or some of your routes in the build config</p>
+          <p>You can auto gerneate the entry.js file and configure your entry routes</p>
           <monaco-editor language="javascript">
-              import { build } from '@webformula/pax-core';
+              import buildEntry from '@webformula/pax-core/src/buildEntry.js';
 
-              build({
+              buildEntry({
                 rootFolder: 'app',
                 pagesFolder: 'pages',
-                layoutFilePath: 'app/layout/index.js',
-                distFolder: 'build',
                 routerConfig: {
                   // the root page "/"
                   root: 'introduction',
 
                   // default page when route cannot be resolved 404
-                  fourOFour: 'fourOFour',
-
-                  // add any additonal routes here
-                  custom: {
-                    'anything/anything/': 'page file name and path',
-
-                    // route with parameter
-                    'anything/anything/:param': 'page file name and path'
-                  }
+                  fourOFour: 'fourOFour'
                 }
               });
           </monaco-editor>
@@ -91,7 +81,7 @@ export default class Routing extends Page {
           <h4>Page config</h4>
           <p>You can configure custom routes in the page itself</p>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class Home extends Page {
                 constructor() {
@@ -125,16 +115,12 @@ export default class Routing extends Page {
 
               // www.site.com/#/item/:id : www.site.com/#/item/1
               router.getUrlParameters(); // { id: 1 }
-              router.getUrlParameter('id'); // 1
 
 
               // Get query parameters
 
               // www.site.com/#/item?id=1
               router.getQueryParameters(); // { id: 1 }
-              router.getQueryParameter('id'); // 1
-
-              router.addQueryParameter('one', 1); // www.site.com/#/item?id=1&one=1
 
 
               // --- Other route interaction ---

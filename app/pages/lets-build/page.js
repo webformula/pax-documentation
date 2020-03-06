@@ -1,4 +1,4 @@
-import { Page, html } from '@webformula/pax-core';
+import { Page } from '@webformula/pax-core';
 
 export default class SimplePage extends Page {
   get title() {
@@ -6,7 +6,7 @@ export default class SimplePage extends Page {
   }
 
   template() {
-    return html`
+    return /* html */`
       <div class="disclaimer-container">
         Disclaimer: This is a beta version
       </div>
@@ -28,7 +28,7 @@ export default class SimplePage extends Page {
           <p>Its time to say "hello world"</p>
           <div class="direction">create file: <b>pages/home.js</b></div>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class Home extends Page {
                 get title() {
@@ -56,7 +56,7 @@ export default class SimplePage extends Page {
           <p>This will show on any invalid url</p>
           <div class="direction">create file: <b>pages/fourOFour.js</b></div>
           <monaco-editor language="javascript">
-              import { Page, html } from '@webformula/pax-core';
+              import { Page } from '@webformula/pax-core';
 
               export default class FourOFour extends Page {
                 get title() {
