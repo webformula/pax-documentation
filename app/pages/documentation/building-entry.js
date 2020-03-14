@@ -14,7 +14,7 @@ export default class Buildingapp extends Page {
       <article>
         <article class="sub-article" id="create-our-fist-page">
           <h4>buildEntry file</h4>
-          <p>Auto generate entry.js file. This will load your pages and components, and setup the router</p>
+          <p>Auto generate pax-entry.js file. This will load your pages and components, and setup the router</p>
 
           <p class="direction">file <b>/buildEntry.js</b></p>
           <monaco-editor language="javascript">
@@ -34,7 +34,16 @@ export default class Buildingapp extends Page {
 
                 // 404 not found pages
                 fourOFour: 'fourOFour.js'
-              }
+              },
+
+
+              // --- optional ---
+
+              // change the core path for pax-core. This can help with some local builds
+              paxCorePath: '@webformula/pax-core',
+              
+              // change the entry file name that is generated
+              entryFilePath: 'pax-entry.js'
             });
           </monaco-editor>
         </article>

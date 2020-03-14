@@ -5,7 +5,7 @@ const cwd = process.cwd();
 
 module.exports = {
   entry: {
-    'entry.js': './app/entry.js'
+    'entry.js': './app/pax-entry.js'
   },
 
   output: {
