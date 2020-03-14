@@ -131,7 +131,6 @@ export default class GettingStarted extends Page {
 
         <article class="sub-article" id="entry">
           <h4>pax-entry.js</h4>
-
           <p>Entry point to out app. Load pages, components, and modules here</p>
           <monaco-editor language="javascript">
             <code>

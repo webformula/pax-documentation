@@ -3,7 +3,7 @@ import { HTMLElementExtended, router } from '@webformula/pax-core';
 customElements.define('anchor-link', class extends HTMLElementExtended {
   constructor() {
     super();
-    this.addEventListener('click', this.scrollTo.bind(this));
+    // this.addEventListener('click', this.scrollTo.bind(this));
   }
 
   connectedCallback() {
