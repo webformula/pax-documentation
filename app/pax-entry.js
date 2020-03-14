@@ -41,4 +41,8 @@ router.addPageClass(WrapUp, 'lets-build/wrap-up');
 router.setRoot('introduction');
 router.init();
 window.router = router;
+
+export {
+  router
+}
   

@@ -44,7 +44,7 @@ export default class Routing extends Page {
                   subfolder/
                     one.js
                     two.js
-                entry.js
+                pax-entry.js
                 index.html
               package.json
 
@@ -59,7 +59,7 @@ export default class Routing extends Page {
 
         <article class="sub-article" id="build-config">
           <h4>Build config</h4>
-          <p>You can auto gerneate the entry.js file and configure your entry routes</p>
+          <p>You can auto gerneate the pax-entry.js file and configure your entry routes</p>
           <monaco-editor language="javascript">
               import buildEntry from '@webformula/pax-core/src/buildEntry.js';
 
@@ -123,6 +123,14 @@ export default class Routing extends Page {
               router.getQueryParameters(); // { id: 1 }
 
 
+              // router intercepter
+              //   this can help with authorization
+              router.interceptRouteChange(() => {
+                // false will prevent the router change from happening
+                return false or true;
+              })
+
+
               // --- Other route interaction ---
 
               // for all other route and location interactions you can use the native browser feature
@@ -130,6 +138,7 @@ export default class Routing extends Page {
               location.hash = '/home'; // navigate home: www.site.com/#/home
               location.href; // http://www.site.com/#/home
               router.current; // http://www.site.com/#/home
+              
           </monaco-editor>
         </article>
 

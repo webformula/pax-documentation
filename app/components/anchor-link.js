@@ -3,16 +3,16 @@ import { HTMLElementExtended, css } from '@webformula/pax-core';
 customElements.define('anchor-link', class extends HTMLElementExtended {
   constructor() {
     super();
-    this.addEventListener('click', this.scrollTo.bind(this));
+    // this.addEventListener('click', this.scrollTo.bind(this));
   }
 
   connectedCallback() {
-    const param = router.getQueryParameter('anchor');
-    if (param && param.replace('hash-', '#') === this.selector) {
-      setTimeout(() => {
-        this.scrollTo();
-      }, 0);
-    }
+    // const param = router.getQueryParameter('anchor');
+    // if (param && param.replace('hash-', '#') === this.selector) {
+    //   setTimeout(() => {
+    //     this.scrollTo();
+    //   }, 0);
+    // }
   }
 
   scrollTo() {
