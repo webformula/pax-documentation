@@ -5,6 +5,23 @@ export default class GettingStarted extends Page {
     return 'Getting started';
   }
 
+  afterRender() {
+      document.querySelector('#indexhtml-editor').content = `
+        <!doctype html>
+        <html lang='en'>
+          <head>
+            <meta http-equiv="Cache-Control" content="no-store" />
+            <title></title>
+            <script src="pax-entry.js" type="module"></script>
+          </head>
+          <body>
+            <!-- this is needed for the router -->
+            <page-container></page-container>
+          </body>
+        </html>
+      `;
+  }
+
   template() {
     return /* html */`
       <div class="disclaimer-container">
@@ -25,6 +42,7 @@ export default class GettingStarted extends Page {
           <li><anchor-link selector="#package-scripts" offset="56">Package.json scrips</anchor-link></li>
           <li><anchor-link selector="#entry" offset="56">entry</anchor-link></li>
           <li><anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link></li>
+          <li><anchor-link selector="#indexhtml" offset="56">Create index.html</anchor-link></li>
           <li><anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link></li>
           <li><a href="/documentation/pages">Next: Building pages</a></li>
         </ul>
@@ -42,7 +60,7 @@ export default class GettingStarted extends Page {
             app/
               pages/
                 helloWorld.js
-              entry.js
+              pax-entry.js
               index.html
             webpack.config.cjs
             package.json
@@ -54,11 +72,12 @@ export default class GettingStarted extends Page {
           <p>You can install pax-core through NPM</p>
           <monaco-editor language="shell">
             <code>
+              // The only required package
               npm i @webformula/pax-core --save
-              npm i http-serve --save-dev
-              npm i nodemon --save-dev
-              npm i webpack --save-dev
-              npm i webpack-cli --save-dev
+
+              // install these to get a full development environment started
+              //    you will need these for this quickstart
+              npm i http-server nodemon webpack webpack-cli --save-dev
             </code>
           </monaco-editor>
         </article>
@@ -73,7 +92,7 @@ export default class GettingStarted extends Page {
 
               module.exports = {
                 entry: {
-                  'entry.js': './app/entry.js'
+                  'pax-entry.js': './app/pax-entry.js'
                 },
 
                 output: {
@@ -96,7 +115,7 @@ export default class GettingStarted extends Page {
 
         <article class="sub-article" id="package-scripts">
           <h4>Package.json scrips</h4>
-          
+
           <monaco-editor language="json">
             <code>
               {
@@ -111,8 +130,8 @@ export default class GettingStarted extends Page {
         </article>
 
         <article class="sub-article" id="entry">
-          <h4>entry.js</h4>
-          
+          <h4>pax-entry.js</h4>
+
           <p>Entry point to out app. Load pages, components, and modules here</p>
           <monaco-editor language="javascript">
             <code>
@@ -184,23 +203,10 @@ export default class GettingStarted extends Page {
           </monaco-editor>
         </article>
 
-        <article class="sub-article" id="create-layout">
+        <article class="sub-article" id="indexhtml">
           <h4>Create index html</h4>
           <p class="direction">Create index html <b>app/index.html</b></p>
-          <monaco-editor language="html" content="${`
-            <!doctype html>
-            <html lang='en'>
-              <head>
-                <meta http-equiv='Cache-Control' content='no-store' />
-                <title></title>
-                <script src=\"entry.js\" type=\"module\"></script>
-              </head>
-              <body>
-                <!-- this is needed for the router -->
-                <page-container></page-container>
-              </body>
-            </html>
-          `}"></monaco-editor>
+          <monaco-editor language="html" id="indexhtml-editor"></monaco-editor>
         </article>
 
         <article class="sub-article" id="lets-run-it">

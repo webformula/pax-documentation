@@ -11,6 +11,14 @@ customElements.define('monaco-editor', class extends HTMLElementExtended {
     else this.wait();
   }
 
+  set content(str = '') {
+    const lines = this.removeLeadingTabs(str.split(/(?:\r\n|\n|\r)/));
+    this.lineCount = lines.length;
+    this._content = lines.join('\n');
+    this.style.height = `${(this.lineCount * 18) + 12}px`;
+    this.wait();
+  }
+
   wait() {
     setTimeout(() => {
       if (window.monacoLoaded) this.init();
@@ -20,8 +28,13 @@ customElements.define('monaco-editor', class extends HTMLElementExtended {
 
   init() {
     this.style.height = `${(this.lineCount * 18) + 12}px`;
+    if (this.editor) {
+      this.editor.value = this._content;
+      return;
+    }
+
     this.editor = monaco.editor.create(this, {
-      value: this.content_,
+      value: this._content,
       language: this.language,
       scrollBeyondLastLine: false,
       theme: 'NightOwl',
@@ -117,7 +130,7 @@ customElements.define('monaco-editor', class extends HTMLElementExtended {
     lines = this.removeLeadingTabs(lines.split(/(?:\r\n|\n|\r)/));
 
     this.lineCount = lines.length;
-    this.content_ = lines.join('\n');
+    this._content = lines.join('\n');
     this.innerHTML = '';
   }
 });

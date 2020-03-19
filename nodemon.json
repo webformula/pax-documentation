@@ -4,6 +4,6 @@
   ],
   "ext": "js, css, html",
   "ignore": [
-    "app/entry.js"
+    "app/pax-entry.js"
   ]
 }

@@ -1,4 +1,4 @@
-import { HTMLElementExtended, css } from '@webformula/pax-core';
+import { HTMLElementExtended, router } from '@webformula/pax-core';
 
 customElements.define('anchor-link', class extends HTMLElementExtended {
   constructor() {
@@ -7,10 +7,10 @@ customElements.define('anchor-link', class extends HTMLElementExtended {
   }
 
   connectedCallback() {
-    const param = router.getQueryParameter('anchor');
-    if (param && param.replace('hash-', '#') === this.selector) {
+    const params = router.searchParamters;
+    if (params && params.anchor && params.anchor.replace('hash-', '#') === this.selector) {
       setTimeout(() => {
-        this.scrollTo();
+        this.moveTo();
       }, 0);
     }
   }
@@ -24,7 +24,15 @@ customElements.define('anchor-link', class extends HTMLElementExtended {
       left: 0,
       behavior: 'smooth'
     });
-    router.addQueryParameter('anchor', this.selector.replace('#', 'hash-'));
+    router.setSearchParamter('anchor', this.selector.replace('#', 'hash-'));
+  }
+
+  moveTo() {
+    let anchor = this.getAnchor();
+    let scrollElement = this.getScrollElement();
+    let count = anchor.offsetTop - scrollElement.scrollTop - this.offset;
+    scrollElement.scrollTop = count;
+    router.setSearchParamter('anchor', this.selector.replace('#', 'hash-'));
   }
 
   get selector() {

@@ -26,7 +26,7 @@ export default class WebpackPage extends Page {
 
             module.exports = {
               entry: {
-                'entry.js': './app/entry.js'
+                'pax-entry.js': './app/pax-entry.js'
               },
 
               output: {
