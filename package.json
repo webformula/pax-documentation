@@ -18,7 +18,7 @@
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
   "dependencies": {
-    "@webformula/pax-core": "file:../pax-core"
+    "@webformula/pax-core": "^0.8.1"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
