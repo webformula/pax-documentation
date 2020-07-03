@@ -1,0 +1,178 @@
+<div class="disclaimer-container">
+  Disclaimer: This is a beta version
+</div>
+
+<article>
+  <article class="into-article">
+    <h2>Quick Start guide</h2>
+    <p>Lets build a small site</p>
+  </article>
+
+  <h6 style="padding-left:24px;">Quick links</h6>
+  <ul>
+    <li>
+      <anchor-link selector="#structure" offset="56">Project structure</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#installation" offset="56">Installation</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#paxbuild" offset="56">PAX build</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#nodemon" offset="56">Nodemon</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#snowpack" offset="56">Snowpack</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#package-scripts" offset="56">Package.json scripts</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#indexhtml" offset="56">Create index.html</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link>
+    </li>
+    <li><a href="/documentation/pages">Next: Building pages</a></li>
+  </ul>
+
+  <article class="sub-article" id="a-quick-note">
+    <h4>A quick note</h4>
+    <p>
+      If you looking for a real world example, you can check out the repo for this website. The PAX documentation
+      website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub
+        Repo</a>
+    </p>
+  </article>
+
+  <article class="sub-article" id="structure">
+    <h4>Project structure</h4>
+    <monaco-editor language="yaml">
+      app/
+        pages/
+          helloWorld/
+            page.js
+            page.html
+        pax-entry.js
+        index.html
+      webpack.config.cjs
+      package.json
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="installation">
+    <h4>Installation</h4>
+    <p>You can install pax-core through NPM</p>
+    <monaco-editor language="shell">
+      // The only required package
+      npm i @webformula/pax-core --save
+
+      // install these to get a full development environment started
+      //    you will need these for this quickstart
+      npm i snowpack nodemon --save-dev
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="paxbuild">
+    <h4>PAX build</h4>
+    <p>This is a optional build step that will auto generate you entry file and compile your html into a single template cache</p>
+    <p class="direction">Create pax build config <b>buildEntry.mjs</b></p>
+    <monaco-editor language="javascript">
+      import buildEntry from '@webformula/pax-core/src/buildEntry.js';
+      
+      buildEntry({
+        rootFolder: 'app',
+        pagesFolder: 'pages',
+        templateFile: true,
+        routerConfig: {
+          root: 'Home'
+        }
+      });
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="nodemon">
+    <h4>Nodemon</h4>
+    <p>Auto rebuild all the things whenever any file changes</p>
+    <p class="direction">Create nodemon config <b>Nodemon.json</b></p>
+    <monaco-editor language="json">
+      {
+        "watch": [
+          "app/"
+        ],
+        "ext": "js, css, html",
+        "ignore": [
+          "app/pax-entry.js",
+          "app/pax-templates.js"
+        ]
+      }
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="snowpack">
+    <h4>Snowpack</h4>
+    <p>Snowpack is a great build tool that can make development and building much faster and simpler</p>
+    <p class="direction">Create snowpack config <b>snowpack.config.json</b></p>
+    <monaco-editor language="json">
+      {
+        "scripts": {
+          "run:js,html": "node --experimental-modules buildEntry.mjs",
+          "run:js,html::watch": "nodemon -x $1",
+          "mount:paxcomponents": "mount node_modules/@webformula/pax-components/release --to /pax-components",
+          "mount:monaco": "mount monaco-dist",
+          "mount:src": "mount app --to /",
+          "mount:public": "mount app/public --to /",
+          "mount:webmodules": "mount web_modules"
+        },
+        "install": [
+          "@webformula/pax-core"
+        ]
+      }
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="package-scripts">
+    <h4>Package.json scrips</h4>
+    <p>The only scripts you'll need</p>
+    <p class="direction">Create package.json <b>package.json</b></p>
+    <monaco-editor language="json">
+      {
+        "scripts": {
+          "start": "snowpack dev",
+          "release": "snowpack build"
+        }
+      }
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="indexhtml">
+    <h4>Create index html</h4>
+    <p class="direction">Create index html <b>app/index.html</b></p>
+    <monaco-editor language="html" id="indexhtml-editor"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="create-our-fist-page">
+    <h4>Create our fist page</h4>
+
+    <p class="direction">Create page file <b>app/pages/helloWorld.js</b></p>
+    <monaco-editor id="editor-1" language="javascript"></monaco-editor>
+    <monaco-editor id="editor-2" language="html"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="lets-run-it">
+    <h4>Lets run it</h4>
+    <p>You no have a fully functional site!</p>
+    <monaco-editor language="shell">
+      node start
+    </monaco-editor>
+    <div class="direction">Navigate to <a href="http://localhost:8080" target="_blank">http://localhost:3001</a></div>
+  </article>
+
+  <section>
+    <a class="button" href="#/documentation/routing">Next: Routing</a>
+  </section>
+</article>

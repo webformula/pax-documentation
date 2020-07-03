@@ -80,10 +80,6 @@ export default class WebComponents extends Page {
                   this.cloneTemplate();
                 }
 
-                connectedCallback() {
-                  super.connectedCallback();
-                }
-
                 // automatically called after render
                 addEvents() {
                   this.shadowRoot.querySelector('select').addEventListener('change', this.bound_onChange);

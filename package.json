@@ -9,22 +9,20 @@
     "url": "https://github.com/webformula/pax-documentation.git"
   },
   "scripts": {
-    "start": "nodemon --ignore app/pax-entry.js --watch app --exec \"npm run build:entry && npm run package:dev\" & npm run serve",
-    "serve": "http-server dist/ -p 8080",
-    "package:dev": "webpack --config webpack.dev.config.cjs",
-    "package:prod": "rm -rf dist && webpack --config webpack.prod.config.cjs",
-    "build:entry": "node --experimental-modules buildDocsEntry.mjs"
+    "start": "snowpack dev"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
   "dependencies": {
-    "@webformula/pax-core": "^0.8.1"
+    "@webformula/pax-components": "^0.12.0-beta",
+    "@webformula/pax-core": "^0.10.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.1.1",
-    "http-server": "^0.11.1",
-    "nodemon": "^1.19.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "nodemon": "^2.0.4",
+    "snowpack": "^2.6.3",
+    "watch": "^1.0.2"
   }
 }

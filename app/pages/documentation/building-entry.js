@@ -43,7 +43,13 @@ export default class Buildingapp extends Page {
               paxCorePath: '@webformula/pax-core',
               
               // change the entry file name that is generated
-              entryFilePath: 'pax-entry.js'
+              entryFilePath: 'pax-entry.js',
+
+              // build template cache to make pages load faster. This is defaulted to false
+              templateFile: true,
+
+              // file path for template cache
+              templateFilePath: 'pax-template.js'
             });
           </monaco-editor>
         </article>
