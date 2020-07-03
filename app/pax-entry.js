@@ -1,14 +1,14 @@
-
 import './components/anchor-link.js';
 import './components/monaco-editor.js';
 import './pages/documentation/web-components.js';
 import './pages/lets-build/component.js';
+import './pax-templates.js';
 
 import { router } from '@webformula/pax-core';
-import Browsers from './pages/documentation/browsers.js';
+import Browsers from './pages/documentation/browsers/page.js';
 import Buildingapp from './pages/documentation/building-entry.js';
-import BuildingPages from './pages/documentation/building-pages.js';
-import GettingStarted from './pages/documentation/quick-start.js';
+import BuildingPages from './pages/documentation/building-pages/page.js';
+import GettingStarted from './pages/documentation/quick-start/page.js';
 import Routing from './pages/documentation/routing.js';
 import ServiceWorker from './pages/documentation/service-worker.js';
 import WebComponents from './pages/documentation/web-components.js';
@@ -31,11 +31,11 @@ router.addPageClass(ServiceWorker, 'documentation/service-worker');
 router.addPageClass(WebComponents, 'documentation/web-components');
 router.addPageClass(WebpackPage, 'documentation/webpack-bundle');
 router.addPageClass(Examples, 'examples/examples');
-router.addPageClass(FourOFour, 'fourofour');
+router.addPageClass(FourOFour, 'FourOFour');
 router.addPageClass(Introduction, 'introduction');
 router.addPageClass(Component, 'lets-build/component');
 router.addPageClass(Layout, 'lets-build/layout');
-router.addPageClass(SimplePage, 'lets-build/page');
+router.addPageClass(SimplePage, 'lets-build');
 router.addPageClass(What, 'lets-build/what');
 router.addPageClass(WrapUp, 'lets-build/wrap-up');
 router.setRoot('introduction');
@@ -44,5 +44,4 @@ window.router = router;
 
 export {
   router
-}
-  
+};

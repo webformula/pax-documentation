@@ -4,6 +4,7 @@
   ],
   "ext": "js, css, html",
   "ignore": [
-    "app/pax-entry.js"
+    "app/pax-entry.js",
+    "app/pax-templates.js"
   ]
 }

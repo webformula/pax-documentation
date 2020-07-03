@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "run:js,html": "node --experimental-modules buildEntry.mjs",
+    "run:js,html::watch": "nodemon -x $1",
+    "mount:paxcomponents": "mount node_modules/@webformula/pax-components/release --to /pax-components",
+    "mount:monaco": "mount monaco-dist",
+    "mount:src": "mount app --to /",
+    "mount:public": "mount app/public --to /",
+    "mount:webmodules": "mount web_modules"
+  },
+  "install": [
+    "@webformula/pax-core"
+  ],
+  "buildOptions": {
+    "baseUrl": "./"
+  }
+}
