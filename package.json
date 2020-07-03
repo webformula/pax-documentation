@@ -9,7 +9,8 @@
     "url": "https://github.com/webformula/pax-documentation.git"
   },
   "scripts": {
-    "start": "snowpack dev"
+    "start": "snowpack dev",
+    "release": "snowpack build"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
