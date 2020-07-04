@@ -47,7 +47,7 @@
             page.html
         pax-entry.js
         index.html
-      webpack.config.cjs
+      snowpack.config.json
       package.json
     </monaco-editor>
   </article>
@@ -58,6 +58,10 @@
     <monaco-editor language="shell">
       // The only required package
       npm i @webformula/pax-core --save
+
+      // install these to get a full development environment started
+      // you will need these for this quickstart
+      npm i snowpack nodemon --save-dev
     </monaco-editor>
   </article>
 
@@ -106,8 +110,6 @@
         "scripts": {
           "run:js,html": "node --experimental-modules buildEntry.mjs",
           "run:js,html::watch": "nodemon -x $1",
-          "mount:paxcomponents": "mount node_modules/@webformula/pax-components/release --to /pax-components",
-          "mount:monaco": "mount monaco-dist",
           "mount:src": "mount app --to /",
           "mount:public": "mount app/public --to /",
           "mount:webmodules": "mount web_modules"
@@ -153,7 +155,7 @@
     <monaco-editor language="shell">
       node start
     </monaco-editor>
-    <div class="direction">Navigate to <a href="http://localhost:8080" target="_blank">http://localhost:3001</a></div>
+    <div class="direction">Navigate to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></div>
   </article>
 
   <section>

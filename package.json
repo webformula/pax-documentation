@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "snowpack dev",
-    "release": "snowpack build"
+    "release": "snowpack build && npm run replace",
+    "replace": "replace 'from \"web_modules' 'from \"/web_modules' build -r"
   },
   "author": "Ben Rubin (B-3PO)",
   "license": "MIT",
@@ -19,10 +20,12 @@
     "@webformula/pax-core": "^0.10.0"
   },
   "devDependencies": {
+    "@snowpack/plugin-parcel": "^1.3.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",
     "nodemon": "^2.0.4",
+    "replace": "^1.2.0",
     "snowpack": "^2.6.3",
     "watch": "^1.0.2"
   }
