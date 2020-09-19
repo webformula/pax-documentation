@@ -2,7 +2,6 @@ import './components/anchor-link.js';
 import './components/monaco-editor.js';
 import './pages/documentation/web-components.js';
 import './pages/lets-build/component.js';
-import './pax-templates.js';
 
 import { router } from '@webformula/pax-core';
 import BareBones from './pages/documentation/bare-bones/page.js';

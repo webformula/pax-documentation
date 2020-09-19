@@ -23,6 +23,16 @@ export default class BareBones extends Page {
       </html>
     `;
 
+    document.querySelector('#entryjs-editor').content = `
+      import { router } from '@webformula/pax-core';
+      import helloWorld from './pages/helloWorld/page.js';
+
+      router.addPageClass(helloWorld, 'helloWorld');
+      router.setRoot('helloWorld');
+      router.init();
+      window.router = router;
+    `;
+
     document.querySelector('#editor-1').content = `
       // Page.js
       import { Page } from '@webformula/pax-core';
@@ -68,7 +78,8 @@ export default class BareBones extends Page {
         }
 
         template() {
-          return './page.html';
+          // Path must be from src folder. Currently you cannot use relative paths (./page.html)
+          return 'pages/helloWorld/page.html';
         }
       }
     `;
@@ -76,13 +87,14 @@ export default class BareBones extends Page {
     document.querySelector('#editor-2').content = `
       <!-- page.html -->
       <!-- you can use es6 template literal syntax in templated html. This means no need for adding mustache or other templating modules -->
-      <h2>\${this.title}</h2>
-      <!-- "this" is equivalent to using "activePage" -->
-      <button onclick="this.onclick()">click me</button>
+      
+      <!-- "activePage" represents the page class -->
+      <h2>\${activePage.title}</h2>
+      <button onclick="activePage.onclick()">click me</button>
     `;
   }
 
   template() {
-    return './page.html';
+    return 'pages/documentation/bare-bones/page.html';
   }
 }
