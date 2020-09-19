@@ -6,6 +6,6 @@ export default class Why extends Page {
   }
 
   template() {
-    return './page.html';
+    return 'pages/documentation/why/page.html';
   }
 }

@@ -30,7 +30,7 @@
 
   <article class="sub-article" id="a-quick-note">
     <h4>A quick note</h4>
-    <p>This is a full example including a build process for production. Check this link out for a bare bones no build process example <a href="#/documentation/bare-bones">Quick start</a></p>
+    <p>This is a full example including a build process for production. Check this link out for a bare bones no build process example <a href="#/documentation/bare-bones">Bare bones</a></p>
     <p>
       If you looking for a real world example, you can check out the repo for this website. The PAX documentation
       website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub Repo</a>
@@ -47,7 +47,7 @@
             page.html
         pax-entry.js
         index.html
-      webpack.config.cjs
+      snowpack.config.json
       package.json
     </monaco-editor>
   </article>
@@ -56,8 +56,12 @@
     <h4>Installation</h4>
     <p>You can install pax-core through NPM</p>
     <monaco-editor language="shell">
-      // The only required package
+      // The only required package (0 dependencies)
       npm i @webformula/pax-core --save
+
+      // This example uses snowpack for the development environment
+      // You can choose any setup you prefer (webpack, rollup, parceljs)
+      npm i snowpack nodemon --save-dev
     </monaco-editor>
   </article>
 
@@ -107,14 +111,16 @@
           "run:js,html": "node --experimental-modules buildEntry.mjs",
           "run:js,html::watch": "nodemon -x $1",
           "mount:paxcomponents": "mount node_modules/@webformula/pax-components/release --to /pax-components",
-          "mount:monaco": "mount monaco-dist",
           "mount:src": "mount app --to /",
           "mount:public": "mount app/public --to /",
-          "mount:webmodules": "mount web_modules"
+          "mount:web_modules": "mount $WEB_MODULES --to /web_modules"
         },
         "install": [
           "@webformula/pax-core"
-        ]
+        ],
+        "installOptions": {
+          "treeshake": false
+        },
       }
     </monaco-editor>
   </article>

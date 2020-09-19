@@ -25,7 +25,7 @@ export default class Introduction extends Page {
           <h5>Highlights</h5>
           <ul>
             <li>Zero dependencies</li>
-            <li>Tiny footprint 11kb</li>
+            <li>Tiny footprint 16kb (4kb gziped)</li>
             <li>No development tools needed</li>
             <li>Follows modern best practices</li>
             <li>Compatible with all packagin tools. Snowpack, Webformula, Parceljs, Rollup</li>

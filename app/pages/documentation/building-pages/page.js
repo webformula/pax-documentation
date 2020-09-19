@@ -6,6 +6,6 @@ export default class BuildingPages extends Page {
   }
 
   template() {
-    return './page.html';
+    return 'pages/documentation/building-pages/page.html';
   }
 }

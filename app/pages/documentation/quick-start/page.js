@@ -5,6 +5,10 @@ export default class GettingStarted extends Page {
     return 'Getting started';
   }
 
+  testClick() {
+    console.log('sdflkjsdlfjsdflkjsdfjl');
+  }
+
   connectedCallback() {
     document.querySelector('#indexhtml-editor').content = `
       <!doctype html>
@@ -68,7 +72,8 @@ export default class GettingStarted extends Page {
         }
 
         template() {
-          return './page.html';
+          // Path must be from src folder. Currently you cannot use relative paths (./page.html)
+          return 'pages/helloWorld/page.html';
         }
       }
     `;
@@ -76,13 +81,15 @@ export default class GettingStarted extends Page {
     document.querySelector('#editor-2').content = `
       <!-- page.html -->
       <!-- you can use es6 template literal syntax in templated html. This means no need for adding mustache or other templating modules -->
-      <h2>\${this.title}</h2>
-      <!-- "this" is equivalent to using "activePage" -->
-      <button onclick="this.onclick()">click me</button>
+      
+      <!-- "activePage" represents the page class -->
+      <h2>\${activePage.title}</h2>
+      <button onclick="activePage.onclick()">click me</button>
     `;
   }
 
   template() {
-    return './page.html';
+    // path must be from src folder. you cannot currently use relative paths (./page.html)
+    return 'pages/documentation/quick-start/page.html';
   }
 }

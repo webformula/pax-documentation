@@ -16,6 +16,9 @@
       <anchor-link selector="#installation" offset="56">Installation</anchor-link>
     </li>
     <li>
+      <anchor-link selector="#entry" offset="56">Create entry.js</anchor-link>
+    </li>
+    <li>
       <anchor-link selector="#indexhtml" offset="56">Create index.html</anchor-link>
     </li>
     <li>
@@ -28,7 +31,7 @@
 
   <article class="sub-article" id="a-quick-note">
     <h4>A quick note</h4>
-    <p>This is a bare bones example, if you want an example with a production build process check out this <a href="#/documentation/quick-start">link</a></p>
+    <p>This is a bare bones example, if you want an example with a production build process check out the <a href="#/documentation/quick-start">Quick start</a></p>
     <p>
       If you looking for a real world example, you can check out the repo for this website. The PAX documentation
       website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub Repo</a>
@@ -43,6 +46,7 @@
           helloWorld/
             page.js
             page.html
+      entry.js
       index.html
     </monaco-editor>
   </article>
@@ -51,13 +55,15 @@
     <h4>Installation</h4>
     <p>You can install pax-core through NPM</p>
     <monaco-editor language="shell">
-      // The only required package
+      // The only required package (0 dependencies)
       npm i @webformula/pax-core --save
-
-      // install these to get a full development environment started
-      // you will need these for this quickstart
-      npm i snowpack nodemon --save-dev
     </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="entry">
+    <h4>Create entry js</h4>
+    <p class="direction">Create entry js <b>app/entry.js</b></p>
+    <monaco-editor language="javascript" id="entryjs-editor"></monaco-editor>
   </article>
 
   <article class="sub-article" id="indexhtml">

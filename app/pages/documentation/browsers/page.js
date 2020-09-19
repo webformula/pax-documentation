@@ -6,6 +6,6 @@ export default class Browsers extends Page {
   }
 
   template() {
-    return './page.html';
+    return 'pages/documentation/browsers/page.html';
   }
 }
