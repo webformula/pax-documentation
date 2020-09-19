@@ -6,11 +6,14 @@
     "mount:monaco": "mount monaco-dist",
     "mount:src": "mount app --to /",
     "mount:public": "mount app/public --to /",
-    "mount:webmodules": "mount web_modules"
+    "mount:webmodules": "mount $WEB_MODULES --to /web_modules"
   },
   "install": [
     "@webformula/pax-core"
   ],
+  "installOptions": {
+    "treeshake": false
+  },
   "buildOptions": {
     "baseUrl": "./"
   }

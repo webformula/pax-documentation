@@ -23,7 +23,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",
     "nodemon": "^2.0.4",
-    "snowpack": "^2.6.3",
+    "snowpack": "^2.11.1",
     "watch": "^1.0.2"
   }
 }
