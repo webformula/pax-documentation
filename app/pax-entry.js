@@ -1,10 +1,11 @@
 import './components/anchor-link.js';
 import './components/monaco-editor.js';
+import './pages/documentation/basic-example/page.js';
 import './pages/documentation/web-components.js';
 import './pages/lets-build/component.js';
 
 import { router } from '@webformula/pax-core';
-import BareBones from './pages/documentation/bare-bones/page.js';
+import BasicExample from './pages/documentation/basic-example/page.js';
 import Browsers from './pages/documentation/browsers/page.js';
 import Buildingapp from './pages/documentation/building-entry.js';
 import BuildingPages from './pages/documentation/building-pages/page.js';
@@ -23,7 +24,7 @@ import SimplePage from './pages/lets-build/page.js';
 import What from './pages/lets-build/what.js';
 import WrapUp from './pages/lets-build/wrap-up.js';
 
-router.addPageClass(BareBones, 'documentation/bare-bones');
+router.addPageClass(BasicExample, 'documentation/basic-example');
 router.addPageClass(Browsers, 'documentation/browsers');
 router.addPageClass(Buildingapp, 'documentation/building-entry');
 router.addPageClass(BuildingPages, 'documentation/building-pages');

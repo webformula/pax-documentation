@@ -4,7 +4,7 @@
 
 <article>
   <article class="into-article">
-    <h2>Bare bones example</h2>
+    <h2>Basic example</h2>
   </article>
 
   <h6 style="padding-left:24px;">Quick links</h6>
@@ -25,7 +25,19 @@
       <anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link>
     </li>
     <li>
+      <anchor-link selector="#create-another-page" offset="56">Create another page</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#create-custom-button" offset="56">Create component</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#dev-env" offset="56">Setup development environment</anchor-link>
+    </li>
+    <li>
       <anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link>
+    </li>
+    <li>
+      <a href="https://github.com/webformula/basic-example" target="_blank">Basic example Github repo</a>
     </li>
   </ul>
 
@@ -42,12 +54,16 @@
     <h4>Project structure</h4>
     <monaco-editor language="yaml">
       app/
+        components/
+          custom-button.js
         pages/
-          helloWorld/
+          another.js
+          home/
             page.js
             page.html
       entry.js
       index.html
+      snowpack.config.json
     </monaco-editor>
   </article>
 
@@ -75,15 +91,42 @@
   <article class="sub-article" id="create-our-fist-page">
     <h4>Create our fist page</h4>
 
-    <p class="direction">Create page file <b>app/pages/helloWorld.js</b></p>
+    <p class="direction">Create page file <b>app/pages/home.js</b></p>
     <monaco-editor id="editor-1" language="javascript"></monaco-editor>
     <monaco-editor id="editor-2" language="html"></monaco-editor>
   </article>
 
+  <article class="sub-article" id="create-another-page">
+    <h4>Create another page</h4>
+  
+    <p class="direction">Create another page file <b>app/pages/another.js</b></p>
+    <monaco-editor id="editor-page2" language="javascript"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="create-custom-button">
+    <h4>Create component</h4>
+  
+    <p class="direction">Create component file <b>app/components/custom-button.js</b></p>
+    <monaco-editor id="editor-custom-button" language="javascript"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="dev-env">
+    <h4>Setup development environment</h4>
+    <p>We are using snowpack for this, but you can use your preferred local dev setup.</p>
+  
+    <p class="direction">Create snowpack config file <b>/snowpack.config.json</b></p>
+    <monaco-editor id="editor-dev" language="json"></monaco-editor>
+  </article>
+
   <article class="sub-article" id="lets-run-it">
     <h4>Lets run it</h4>
-    <p>Simply load your index.html file in a browser.</p>
-    <p>For convienience you can use "http-serve" or "snowpack" npm package to serve your files locally</p>
+    <p>We are using snowpack for this example</p>
+
+    <monaco-editor id="editor-dev" language="shell">
+      # run
+      # this can be your npm script if you don't install snowpack globally
+      snowpack dev
+    </monaco-editor>
   </article>
 
   <section>
