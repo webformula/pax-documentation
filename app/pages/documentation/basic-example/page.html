@@ -1,0 +1,135 @@
+<div class="disclaimer-container">
+  Disclaimer: This is a beta version
+</div>
+
+<article>
+  <article class="into-article">
+    <h2>Basic example</h2>
+  </article>
+
+  <h6 style="padding-left:24px;">Quick links</h6>
+  <ul>
+    <li>
+      <anchor-link selector="#structure" offset="56">Project structure</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#installation" offset="56">Installation</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#entry" offset="56">Create entry.js</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#indexhtml" offset="56">Create index.html</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#create-our-fist-page" offset="56">Create our fist page</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#create-another-page" offset="56">Create another page</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#create-custom-button" offset="56">Create component</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#dev-env" offset="56">Setup development environment</anchor-link>
+    </li>
+    <li>
+      <anchor-link selector="#lets-run-it" offset="56">Lets run it</anchor-link>
+    </li>
+    <li>
+      <a href="https://github.com/webformula/basic-example" target="_blank">Basic example Github repo</a>
+    </li>
+  </ul>
+
+  <article class="sub-article" id="a-quick-note">
+    <h4>A quick note</h4>
+    <p>This is a bare bones example, if you want an example with a production build process check out the <a href="#/documentation/quick-start">Quick start</a></p>
+    <p>
+      If you looking for a real world example, you can check out the repo for this website. The PAX documentation
+      website is built using itself. <a href="https://github.com/pacts-org/pacts-documentation" target="new">GitHub Repo</a>
+    </p>
+  </article>
+
+  <article class="sub-article" id="structure">
+    <h4>Project structure</h4>
+    <monaco-editor language="yaml">
+      app/
+        components/
+          custom-button.js
+        pages/
+          another.js
+          home/
+            page.js
+            page.html
+      entry.js
+      index.html
+      snowpack.config.json
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="installation">
+    <h4>Installation</h4>
+    <p>You can install pax-core through NPM</p>
+    <monaco-editor language="shell">
+      // The only required package (0 dependencies)
+      npm i @webformula/pax-core --save
+    </monaco-editor>
+  </article>
+
+  <article class="sub-article" id="entry">
+    <h4>Create entry js</h4>
+    <p class="direction">Create entry js <b>app/entry.js</b></p>
+    <monaco-editor language="javascript" id="entryjs-editor"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="indexhtml">
+    <h4>Create index html</h4>
+    <p class="direction">Create index html <b>app/index.html</b></p>
+    <monaco-editor language="html" id="indexhtml-editor"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="create-our-fist-page">
+    <h4>Create our fist page</h4>
+
+    <p class="direction">Create page file <b>app/pages/home.js</b></p>
+    <monaco-editor id="editor-1" language="javascript"></monaco-editor>
+    <monaco-editor id="editor-2" language="html"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="create-another-page">
+    <h4>Create another page</h4>
+  
+    <p class="direction">Create another page file <b>app/pages/another.js</b></p>
+    <monaco-editor id="editor-page2" language="javascript"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="create-custom-button">
+    <h4>Create component</h4>
+  
+    <p class="direction">Create component file <b>app/components/custom-button.js</b></p>
+    <monaco-editor id="editor-custom-button" language="javascript"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="dev-env">
+    <h4>Setup development environment</h4>
+    <p>We are using snowpack for this, but you can use your preferred local dev setup.</p>
+  
+    <p class="direction">Create snowpack config file <b>/snowpack.config.json</b></p>
+    <monaco-editor id="editor-dev" language="json"></monaco-editor>
+  </article>
+
+  <article class="sub-article" id="lets-run-it">
+    <h4>Lets run it</h4>
+    <p>We are using snowpack for this example</p>
+
+    <monaco-editor id="editor-dev" language="shell">
+      # run
+      # this can be your npm script if you don't install snowpack globally
+      snowpack dev
+    </monaco-editor>
+  </article>
+
+  <section>
+    <a class="button" href="#/documentation/routing">Next: Routing</a>
+  </section>
+</article>
